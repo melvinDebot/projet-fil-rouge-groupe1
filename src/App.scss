@@ -1,2 +1,19 @@
+<<<<<<< HEAD
 @import "scss/reset.scss";
 @import "scss/listShop.scss";
+=======
+.App{
+  width: 100%;
+  height: 100vh;
+}
+.list_container{
+  z-index: 1;
+  position: absolute;
+}
+.map{
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+
+}
+>>>>>>> fc86c9e8bd9afb625b283ca4fae5ec7719e36148
