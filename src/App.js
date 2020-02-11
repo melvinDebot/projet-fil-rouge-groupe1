@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn Melvin
         </a>
         <div>Eden says hello</div>
       </header>
