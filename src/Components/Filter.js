@@ -18,7 +18,7 @@ class Filter extends React.Component {
   }
   handleInput = (e) =>{
     console.log(e.target.value)
-    this.setState({ searchDog : e.target.value})
+    this.setState({ show : true})
   }
   handleClick = () => {
     console.log('oke')

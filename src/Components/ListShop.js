@@ -6,7 +6,7 @@ function ListShop(props){
     return <List name={shop.name} heu={shop.heu} meter={shop.meter} key={i}/>
   })
   return(
-    <div className="containt">
+    <div className="list__shop--container">
       <h1>Restaurant</h1>
       {shops}
     </div>
