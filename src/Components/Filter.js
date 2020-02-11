@@ -1,6 +1,5 @@
 import React from 'react';
-import './../App.scss';
-import InputFilter from './InputFilter';
+import '../App.scss';
 import ListShop from './ListShop';
 
 class Filter extends React.Component {
@@ -8,10 +7,10 @@ class Filter extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      dogs : [
-        {name : 'La Grande Cuisine', breed : "Mer. 14h-16h", meter : "400m"},
-        {name : 'Chez Pierrot', breed : "Mer. 12h-15h"},
-        {name : 'Le Bon Chef ', breed : "Mer. 12h-19h"},
+      shops : [
+        {name : 'La Grande Cuisine', heu : "Mer. 14h-16h", meter : "400m"},
+        {name : 'Chez Pierrot', heu : "Mer. 12h-15h", meter : "100m"},
+        {name : 'Le Bon Chef ', heu : "Mer. 12h-19h", meter : "50m"},
       ],
       searchDog: '',
       show : false,
@@ -26,8 +25,8 @@ class Filter extends React.Component {
     console.log('oke')
   }
   render(){
-    let filter = this.state.dogs.filter((dog) => {
-      return dog.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
+    let filter = this.state.shops.filter((shop) => {
+      return shop.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
     })
     return (
       <div className="list_container">
@@ -38,7 +37,6 @@ class Filter extends React.Component {
           onClick={this.handleClick}
           onInput={this.handleInput}
         />
-        <h1>Restaurant</h1>
         
         {this.state.show ? <ListShop filter={filter}/>  : ""}
       </div>
