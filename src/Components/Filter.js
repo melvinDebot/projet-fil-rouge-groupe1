@@ -31,13 +31,15 @@ class Filter extends React.Component {
     })
     return (
       <div className="list_container">
-      <input 
-          type="text" 
-          placeholder="Rechercher un lieu" 
-          className="input-filter" 
-          onClick={this.handleClick}
-          onInput={this.handleInput}
-        />
+      <div className="wrapper_input">
+        <input 
+            type="text" 
+            placeholder="Rechercher un lieu" 
+            className="input-filter" 
+            onClick={this.handleClick}
+            onInput={this.handleInput}
+          />
+      </div>
         <h1>Restaurant</h1>
         
         {this.state.show ? <ListShop filter={filter}/>  : ""}
