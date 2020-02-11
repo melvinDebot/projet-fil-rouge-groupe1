@@ -21,7 +21,6 @@ class Filter extends React.Component {
     this.setState({ searchDog : e.target.value})
   }
   handleClick = () => {
-    this.setState({ show : true})
     console.log('oke')
   }
   render(){
