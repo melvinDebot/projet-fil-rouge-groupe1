@@ -19,6 +19,7 @@ function App() {
           Learn Melvin
           <div>WEESSH LA CITEE</div>
         </a>
+        <div>Eden says hello</div>
       </header>
     </div>
   );
