@@ -1,5 +1,5 @@
 import React from 'react';
-import imgOne from './assets/imgOne.png'
+import imgOne from './../assets/imgOne.png'
 
 
 function List(props){
