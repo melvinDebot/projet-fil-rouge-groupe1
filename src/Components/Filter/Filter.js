@@ -1,5 +1,4 @@
 import React from 'react';
-import ButtonNav from './../ButtonNav/ButtonNav';
 import ListShop from '../ListShop/ListShop';
 import './filter.scss';
 

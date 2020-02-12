@@ -1,5 +1,6 @@
 import React from 'react';
 import "./isotope.scss";
+import Checkbox from '@material-ui/core/Checkbox';
 // import { element } from 'prop-types';
 
 export class Isotope extends React.Component {
@@ -34,22 +35,20 @@ export class Isotope extends React.Component {
       <h3>Filtre</h3>
       <h4>Type d'activité</h4>
         <div className="isotope-button">
-          <div>
-            <button
+          <label>
+            <Checkbox
               onClick={()=>{ this.filtre("Restaurant") }}
               className="tech"
-            >
-            </button>
+            />
             Concert
-          </div>
-          <div>
-            <button
+          </label>
+          <label>
+            <Checkbox
               onClick={()=>{ this.filtre("Cinema") }}
               className="tech"
-            >
-            </button>
+            />
             Cinema
-          </div>
+          </label>
         </div>
       </div>
         
