@@ -5,9 +5,7 @@ import './App.scss';
 import Maps from './Components/Maps';
 import Filter from './Components/Filter';
 import ButtonFilter from './Components/ButtonFilter';
-import ButtonNav from './Components/ButtonNav';
 import Isotope from './Components/Isotope';
-import ListShop from './Components/ListShop';
 
 export default class App extends React.Component{
   constructor (props) {
@@ -74,8 +72,6 @@ export default class App extends React.Component{
       
         <Filter  />
         <ButtonFilter toogle={this.toogleIsotopeState} />
-        < ButtonNav eden="Liste" toggleClick={this.toggleFilter.bind(this)}/>
-        {this.setState.filter ? <ListShop /> : ""}
         <Maps list={isotope.list} />
         { isotope.state ? <Isotope list={isotope.list} setList={this.setList} /> : ''}
       </div>

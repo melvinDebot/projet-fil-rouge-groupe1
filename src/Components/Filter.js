@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.scss';
 import ListShop from './ListShop';
+import ButtonNav from './ButtonNav';
 
 class Filter extends React.Component {
 
@@ -29,7 +30,6 @@ class Filter extends React.Component {
     })
     return (
       <div className="list_container">
-
         <div className="wrapper_input">
           <input 
               type="text" 
@@ -39,7 +39,7 @@ class Filter extends React.Component {
               onInput={this.handleInput}
             />
         </div>
-        
+        <ButtonNav toggleClick={this.handleInput}/>
         {this.state.show ? <ListShop filter={filter}/>  : ""}
       </div>
       
