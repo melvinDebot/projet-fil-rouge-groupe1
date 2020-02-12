@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import MapGL, {GeolocateControl, Marker} from 'react-map-gl';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoibWVsdmluZGJ0IiwiYSI6ImNrNjBqb2RtcjA4M3Qzb21ieDB5bzE3ZmkifQ.g8UJ8r3es_zfy-NE9RVFgg'; // Set your mapbox token here
@@ -10,32 +10,30 @@ const geolocateStyle = {
   margin: 10
 };
 
-const cities = [
-  {
-    id : 1,
-    name : "Restaurant",
-    longitude : 2.6091616,
-    latitude : 48.9383339
-
+class Markers extends React.Component{
+  constructor(props){
+    super(props);
   }
-]
 
-export class Markers extends React.Component{
   render(){
-    const {data} = this.props;
+    const {list} = this.props
     return(
-      data.map(
-        city => <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><p>{city.name}</p></Marker>
-      )
+      list.map( city => {
+        let result = city.active ? <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><p>{city.title}</p></Marker> : ''
+        return result
+      })
     )
   }
 }
 
-class Maps extends React.Component {
+class Maps extends Component {
+  constructor (props) {
+    super(props)
+  }
   state = {
     viewport: {
-      latitude: 48.938236499999995,
-      longitude: 2.6074297,
+      latitude: 48.851343799999995,
+      longitude: 2.4205886,
       zoom: 16,
       bearing: 0,
       pitch: 0
@@ -62,7 +60,7 @@ class Maps extends React.Component {
             positionOptions={{enableHighAccuracy: true}}
             trackUserLocation={true}
           />
-          <Markers data={cities} className="filter-item vege"/>
+          <Markers list={this.props.list} className="filter-item vege"/>
         </MapGL>
       </div>
       

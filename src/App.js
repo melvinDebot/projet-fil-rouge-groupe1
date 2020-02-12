@@ -1,58 +1,69 @@
 import React from 'react';
-import Filter from './Components/Filter';
-import Maps from './Components/Maps';
 import './App.scss';
-import Carte from './Components/Maps';
-import List from './Components/List';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+// Import Components
+import Maps from './Components/Maps';
+import Filter from './Components/Filter';
+import ButtonFilter from './Components/ButtonFilter';
+import Isotope from './Components/Isotope';
 
-function App() {
-  return (
-    <div className="App">
-      <Filter />
-      <Maps />
+export default class App extends React.Component{
+  constructor (props) {
+    super(props)
+    this.state = {
+      isotope: {
+        state: false,
+        list : [
+          {
+            id : 1,
+            name : "Restaurant",
+            title : "Le duc",
+            longitude : 2.4211505003287126,
+            latitude : 48.8512844148994,
+            active : false      
+          },
+          {
+            id : 2,
+            name : "Cinema",
+            title : "Gaumont",
+            longitude : 2.418229003786947,
+            latitude : 48.850736553471464,
+            active : false      
+          }
 
-      <Router>
-            <div className="button">
-              <div className="button-item btn_cart">
-                <Link to='./'>
-                  <p>Carte</p>
-                </Link>
-              </div>
+        ]
+      }
+    }
+    this.setList = this.setList.bind(this)
+    this.toogleIsotopeState = this.toogleIsotopeState.bind(this)
+  }
 
-              <div className="button-item btn_list">
-                <Link to='./list'>
-                  <p>Liste</p>
-                </Link>
-              </div>
-            </div>
+  toogleIsotopeState() {
+    const { isotope } = this.state
+    isotope.state = isotope.state === true ? false : true
+    console.log(isotope)
+    this.setState({
+      "isotope" : isotope
+    })
+  }
+  setList(list) {
+    const {isotope} = this.state
 
-            <div className="filter_container">
-              <Link to='./filter'>
-                <div className="filter_innerbox"></div>
-              </Link>
-            </div>
-
-          <Switch>
-            <Route path="/list">
-              <List />
-            </Route>
-            <Route path="/filter">
-              <Filter />
-            </Route>
-            <Route path="/">
-              <Carte />
-            </Route>
-          </Switch>
-        </Router>
-    </div>
-  );
+    isotope["list"] = list
+    this.setState({
+      "isotope" : isotope
+    })
+  }
+  render(){
+    const {isotope} = this.state
+    return(
+      <div className="App">
+      
+        <Filter  />
+        <ButtonFilter toogle={this.toogleIsotopeState} />
+        <Maps list={isotope.list} />
+        { isotope.state ? <Isotope list={isotope.list} setList={this.setList} /> : ''}
+      </div>
+    )
+  }
 }
-
-export default App;
