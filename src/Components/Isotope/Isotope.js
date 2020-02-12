@@ -31,19 +31,10 @@ export class Isotope extends React.Component {
     this.props.setList(newList)
   }
 
-  hideIsotopeState() {
-    const { hide } = this.state
-    hide.state = hide.state === true ? false : true
-    console.log(hide)
-    this.setState({
-      "hide" : hide
-    })
-  }
-
   render() {
     return (
       <div className="isotope-containt">
-        <span className="close" onClick="hideIsotopeState()"></span>
+        <span className="close"></span>
       <div className="isotope--block">
       <h3>Filtres</h3>
       <h4>Type d'activité</h4>
