@@ -11,7 +11,7 @@ function List(props){
       </div>
 
       <div className="box_text">
-        <p>Name: {props.name}</p>
+        <p>{props.name}</p>
       </div>
 
       <div className="box_desc">

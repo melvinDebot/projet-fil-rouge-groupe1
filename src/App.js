@@ -13,7 +13,7 @@ export default class App extends React.Component{
     this.state = {
       isotope: {
         state: false,
-        show: false,
+        show : true,
         list : [
           {
             id : 1,
@@ -30,12 +30,10 @@ export default class App extends React.Component{
             longitude : 2.418229003786947,
             latitude : 48.850736553471464,
             active : false      
-          }
-
+          },
         ]
       }
     }
-    this.toggleFilter = this.toggleFilter.bind(this)
     this.setList = this.setList.bind(this)
     this.toogleIsotopeState = this.toogleIsotopeState.bind(this)
   }
@@ -56,15 +54,6 @@ export default class App extends React.Component{
       "isotope" : isotope
     })
   }
-
-  toggleFilter() {
-    const { filter } = this.state
-    filter.state = filter.state === true ? false : true;
-    this.setState({
-      "filter": filter
-    }) 
-  }
-
   render(){
     const {isotope} = this.state
     return(
@@ -77,4 +66,4 @@ export default class App extends React.Component{
       </div>
     )
   }
-} 
+}
