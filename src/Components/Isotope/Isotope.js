@@ -1,6 +1,7 @@
 import React from 'react';
 import "./isotope.scss";
 import Checkbox from '@material-ui/core/Checkbox';
+
 // import { element } from 'prop-types';
 
 export class Isotope extends React.Component {
@@ -8,6 +9,9 @@ export class Isotope extends React.Component {
     super(props);
     this.handleClickTech = this.handleClickTech.bind(this);
     this.filtre = this.filtre.bind(this);
+    this.state = {
+      hide: false
+    }
   }
 
   handleClickTech(e) {
@@ -27,27 +31,58 @@ export class Isotope extends React.Component {
     this.props.setList(newList)
   }
 
+  hideIsotopeState() {
+    const { hide } = this.state
+    hide.state = hide.state === true ? false : true
+    console.log(hide)
+    this.setState({
+      "hide" : hide
+    })
+  }
 
   render() {
     return (
       <div className="isotope-containt">
+        <span className="close" onClick="hideIsotopeState()"></span>
       <div className="isotope--block">
-      <h3>Filtre</h3>
+      <h3>Filtres</h3>
       <h4>Type d'activité</h4>
         <div className="isotope-button">
           <label>
             <Checkbox
               onClick={()=>{ this.filtre("Restaurant") }}
-              className="tech"
+              className="filter_checkbox filter_checkbox_concert"
             />
+            
             Concert
           </label>
           <label>
             <Checkbox
               onClick={()=>{ this.filtre("Cinema") }}
-              className="tech"
+              className="filter_checkbox filter_checkbox_cine"
             />
             Cinema
+          </label>
+          <label>
+            <Checkbox
+              onClick={()=>{ this.filtre("Cinema") }}
+              className="filter_checkbox filter_checkbox_parc"
+            />
+            Parcs
+          </label>
+          <label>
+            <Checkbox
+              onClick={()=>{ this.filtre("Cinema") }}
+              className="filter_checkbox filter_checkbox_monument"
+            />
+            Monuments
+          </label>
+          <label>
+            <Checkbox
+              onClick={()=>{ this.filtre("Cinema") }}
+              className="filter_checkbox filter_checkbox_musee"
+            />
+            Musées
           </label>
         </div>
       </div>
