@@ -9,18 +9,19 @@ class Filter extends React.Component{
       show : false,
       shops : [
         {name : 'La Grande Cuisine', heure : "Mer. 14h-16h", meter : "400m"},
-        {name : 'Chez Pierrot', heure : "Mer. 12h-15h"},
-        {name : 'Le Bon Chef ', heure : "Mer. 12h-19h"},
+        {name : 'Chez Pierrot', heure : "Mer. 12h-15h",  meter : "50m"},
+        {name : 'Le Bon Chef ', heure : "Mer. 12h-19h", meter : "100m"},
       ],
       searchDog: '',
     }
   }
   handleClick = () => {
-    this.setState({ show : true })
+    this.setState({ show : !this.state.show })
   }
   handleInput = (e) =>{
-    console.log(e.target.value)
+    console.log(this.state.show)
     this.setState({ searchDog : e.target.value})
+
   }
   render(){
     let filter = this.state.shops.filter((shop) => {
@@ -28,16 +29,17 @@ class Filter extends React.Component{
     })
     return(
       <div className="filter_input_container">
-
         <div className="wrapper_input">
           <input 
             type="text" 
             placeholder="Rechercher un lieu" 
             className="input-filter" 
-            onClick={this.handleClick}
             onInput={this.handleInput}
+            onClick={this.handleClick}
           />
-          {this.state.show ? <ListShop filter={filter}/> : ""}
+          {this.state.show ? <ListShop filter={filter} close={(()=>{
+            this.setState({show : false})
+          })}/> : ""}
         </div>
       </div>
       
