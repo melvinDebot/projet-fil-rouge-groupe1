@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MapGL, {GeolocateControl, Marker} from 'react-map-gl';
+import './maps.scss';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoibWVsdmluZGJ0IiwiYSI6ImNrNjBqb2RtcjA4M3Qzb21ieDB5bzE3ZmkifQ.g8UJ8r3es_zfy-NE9RVFgg'; // Set your mapbox token here
 
@@ -11,9 +12,6 @@ const geolocateStyle = {
 };
 
 class Markers extends React.Component{
-  constructor(props){
-    super(props);
-  }
 
   render(){
     const {list} = this.props
@@ -27,9 +25,7 @@ class Markers extends React.Component{
 }
 
 class Maps extends Component {
-  constructor (props) {
-    super(props)
-  }
+  
   state = {
     viewport: {
       latitude: 48.851343799999995,

@@ -1,6 +1,5 @@
 import React from 'react';
-import {Markers} from './Maps';
-import { element } from 'prop-types';
+// import { element } from 'prop-types';
 
 export class Isotope extends React.Component {
   constructor(props) {

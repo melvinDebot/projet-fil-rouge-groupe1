@@ -1,7 +1,12 @@
 import React from 'react';
+<<<<<<< HEAD:src/Components/Filter.js
 import '../App.scss';
 import ListShop from './ListShop';
 import ButtonNav from './ButtonNav';
+=======
+import ListShop from '../ListShop/ListShop';
+import './filter.scss';
+>>>>>>> a8efa0d7c9d31f080cbf43292c8e29fb4762a8be:src/Components/Filter/Filter.js
 
 class Filter extends React.Component {
 
@@ -29,7 +34,12 @@ class Filter extends React.Component {
       return shop.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
     })
     return (
+<<<<<<< HEAD:src/Components/Filter.js
       <div className="list_container">
+=======
+      <div className="filter_input_container">
+
+>>>>>>> a8efa0d7c9d31f080cbf43292c8e29fb4762a8be:src/Components/Filter/Filter.js
         <div className="wrapper_input">
           <input 
               type="text" 
