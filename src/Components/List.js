@@ -10,7 +10,7 @@ function List(props){
         <div className="block--img">{props.meter}</div>
       </div>
       <div className="box--text">
-        <p>Name: {props.name}</p>
+        <p>{props.name}</p>
       </div>
       <div className="box--desc">
         <p className="desc">Ouvert</p>
