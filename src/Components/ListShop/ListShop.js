@@ -8,6 +8,7 @@ function ListShop(props){
   })
   return(
     <div className="list_shop_container">
+      <div className="close" onClick={props.close}>Close</div>
       <h1>Restaurant</h1>
       {shops}
       <h1>Boutique</h1>

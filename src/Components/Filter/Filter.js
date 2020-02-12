@@ -17,15 +17,12 @@ class Filter extends React.Component{
     }
   }
   handleClick = () => {
-    this.setState({ show : true })
-  }
-  handleClickOut = () => {
-    this.setState({ show : false})
+    this.setState({ show : !this.state.show })
   }
   handleInput = (e) =>{
-    console.log(e.target.value)
+    console.log(this.state.show)
     this.setState({ searchDog : e.target.value})
-    this.handleClick()
+
   }
   render(){
     let filter = this.state.shops.filter((shop) => {
@@ -36,11 +33,14 @@ class Filter extends React.Component{
         <div className="wrapper_input">
           <input 
             type="text" 
-            placeholder="Rechercher un lieu" 
+            placeholder="Rechercher unn lieu" 
             className="input-filter" 
             onInput={this.handleInput}
+            onClick={this.handleClick}
           />
-          {this.state.show ? <ListShop filter={filter} /> : ""}
+          {this.state.show ? <ListShop filter={filter} close={(()=>{
+            this.setState({show : false})
+          })}/> : ""}
         </div>
       </div>
       

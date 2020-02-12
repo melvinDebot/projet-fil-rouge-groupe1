@@ -6,9 +6,9 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoibWVsdmluZGJ0IiwiYSI6ImNrNjBqb2RtcjA4M3Qzb21ieDB
 
 const geolocateStyle = {
   position: 'absolute',
-  top: 0,
-  left: 0,
-  margin: 10
+  bottom: 0,
+  right: 0,
+  margin: 25
 };
 
 class Markers extends React.Component{
@@ -56,7 +56,7 @@ class Maps extends Component {
             positionOptions={{enableHighAccuracy: true}}
             trackUserLocation={true}
           />
-          <Markers list={this.props.list} className="filter-item vege"/>
+          <Markers list={this.props.list} className="filter-item"/>
         </MapGL>
       </div>
       
