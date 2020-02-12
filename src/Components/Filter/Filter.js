@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonNav from './../ButtonNav/ButtonNav';
+
 import ListShop from '../ListShop/ListShop';
 import './filter.scss';
 
@@ -10,8 +10,8 @@ class Filter extends React.Component{
       show : false,
       shops : [
         {name : 'La Grande Cuisine', heure : "Mer. 14h-16h", meter : "400m"},
-        {name : 'Chez Pierrot', heure : "Mer. 12h-15h"},
-        {name : 'Le Bon Chef ', heure : "Mer. 12h-19h"},
+        {name : 'Chez Pierrot', heure : "Mer. 12h-15h",  meter : "50m"},
+        {name : 'Le Bon Chef ', heure : "Mer. 12h-19h", meter : "100m"},
       ],
       searchDog: '',
     }
@@ -19,9 +19,13 @@ class Filter extends React.Component{
   handleClick = () => {
     this.setState({ show : true })
   }
+  handleClickOut = () => {
+    this.setState({ show : false})
+  }
   handleInput = (e) =>{
     console.log(e.target.value)
     this.setState({ searchDog : e.target.value})
+    this.handleClick()
   }
   render(){
     let filter = this.state.shops.filter((shop) => {
@@ -29,16 +33,14 @@ class Filter extends React.Component{
     })
     return(
       <div className="filter_input_container">
-
         <div className="wrapper_input">
           <input 
             type="text" 
             placeholder="Rechercher un lieu" 
             className="input-filter" 
-            onClick={this.handleClick}
             onInput={this.handleInput}
           />
-          {this.state.show ? <ListShop filter={filter}/> : ""}
+          {this.state.show ? <ListShop filter={filter} /> : ""}
         </div>
       </div>
       
