@@ -1,4 +1,5 @@
 import React from 'react';
+import "./isotope.scss";
 // import { element } from 'prop-types';
 
 export class Isotope extends React.Component {
@@ -28,19 +29,31 @@ export class Isotope extends React.Component {
 
   render() {
     return (
-      <div className="all">
-        <button
-          onClick={()=>{ this.filtre("Restaurant") }}
-          className="tech"
-        >
-          Restaurant
-        </button>
-        <button
-          onClick={()=>{ this.filtre("Cinema") }}
-          className="tech"
-        >
-          Cinema
-        </button>
+      <div className="isotope-containt">
+      <div className="isotope--block">
+      <h3>Filtre</h3>
+      <h4>Type d'activité</h4>
+        <div className="isotope-button">
+          <div>
+            <button
+              onClick={()=>{ this.filtre("Restaurant") }}
+              className="tech"
+            >
+            </button>
+            Concert
+          </div>
+          <div>
+            <button
+              onClick={()=>{ this.filtre("Cinema") }}
+              className="tech"
+            >
+            </button>
+            Cinema
+          </div>
+        </div>
+      </div>
+        
+        
       </div>
     );
   }

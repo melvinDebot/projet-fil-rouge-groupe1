@@ -1,5 +1,5 @@
 import React from 'react';
-import Isotope from './Isotope';
+import Isotope from './Isotope/Isotope';
 
 class ButtonFilter extends React.Component{
   constructor(props){

@@ -16,7 +16,7 @@ function List(props){
 
       <div className="box_desc">
         <p className="desc">Ouvert</p>
-        <p>{props.heu}</p>
+        <p>{props.heure}</p>
       </div>
     </div>
   )

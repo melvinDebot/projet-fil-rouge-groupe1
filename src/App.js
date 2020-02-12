@@ -5,7 +5,7 @@ import './App.scss';
 import Maps from './Components/Maps/Maps';
 import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
-import Isotope from './Components/Isotope';
+import Isotope from './Components/Isotope/Isotope';
 
 export default class App extends React.Component{
   constructor (props) {
