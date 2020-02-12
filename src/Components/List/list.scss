@@ -1,48 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
-
-$primaryFont: 'Source Sans Pro', sans-serif;
-$primaryColor: #0885C2;
-
-div, a, span, h1 {
-  font-family: $primaryFont;
-}
-
-.wrapper_input{
-  width: 90%;
-  height: 2.5rem;
-  margin: 1.5rem auto;
-  box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.25);
-  border-radius: 30%;
-
-  input{
-    width: 100%;
-    height: 100%;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 1.875rem;
-    border-style: hidden;
-    text-indent: 1rem;
-    
-    &::placeholder{
-      font-size: 1rem;
-      color: #a5a5a5;
-    }
-  }
-}
-
-.list_shop_container {
-  padding: 25% 2rem 0;
-  background: white;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-
-  h1 {
-    font-size: 1.5rem;
-  }
-}
+@import "./../../App.scss";
 
 .box{
   box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.25);
@@ -53,24 +9,27 @@ div, a, span, h1 {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
-  .box--text{
+
+  .box_text{
     width: 45%;
     p{
       font-size: 1rem;
       font-weight: 600;
       margin: 0 .5rem;
     }
-    
   }
-  .box--img{
+
+  .box_img{
     position: relative;
+
     img{
       width: 6rem;
       height: 4.5rem;
       border-radius: 5%;
       
     }
-    .block--img{
+
+    .block_img{
       width: 50px;
       height: 20px;
       background: black;
@@ -83,9 +42,9 @@ div, a, span, h1 {
       font-size: 14px;
       font-weight: 600;
     }
-    
   }
-  .box--desc {
+
+  .box_desc {
     margin-right: .5rem;
 
     p {

@@ -1,10 +1,7 @@
 import React from 'react';
+import './buttonNav.scss';
 
 class ButtonNav extends React.Component {
-
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return(
@@ -16,7 +13,7 @@ class ButtonNav extends React.Component {
         <div className="button-item btn_list" onClick={this.props.toggleClick}>
         <p>{this.props.eden}</p>
         </div>
-      </div>
+      </div> 
     )
   }
   

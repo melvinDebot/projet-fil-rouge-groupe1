@@ -1,18 +1,20 @@
 import React from 'react';
-import imgOne from './../Assets/imgOne.png'
-
+import imgOne from '../../Assets/imgOne.png'
+import "./list.scss";
 
 function List(props){
   return(
     <div className="box">
-      <div className="box--img">
+      <div className="box_img">
         <img src={imgOne} alt="" />
-        <div className="block--img">{props.meter}</div>
+        <div className="block_img">{props.meter}</div>
       </div>
-      <div className="box--text">
+
+      <div className="box_text">
         <p>{props.name}</p>
       </div>
-      <div className="box--desc">
+
+      <div className="box_desc">
         <p className="desc">Ouvert</p>
         <p>{props.heu}</p>
       </div>

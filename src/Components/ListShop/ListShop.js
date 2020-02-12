@@ -1,5 +1,6 @@
 import React from 'react';
-import List from './List';
+import List from '../List/List';
+import './listShop.scss';
 
 function ListShop(props){
   let shops = props.filter.map((shop, i) => {
