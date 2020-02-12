@@ -5,7 +5,9 @@ import './App.scss';
 import Maps from './Components/Maps';
 import Filter from './Components/Filter';
 import ButtonFilter from './Components/ButtonFilter';
+import ButtonNav from './Components/ButtonNav';
 import Isotope from './Components/Isotope';
+import ListShop from './Components/ListShop';
 
 export default class App extends React.Component{
   constructor (props) {
@@ -13,6 +15,7 @@ export default class App extends React.Component{
     this.state = {
       isotope: {
         state: false,
+        show: false,
         list : [
           {
             id : 1,
@@ -34,6 +37,7 @@ export default class App extends React.Component{
         ]
       }
     }
+    this.toggleFilter = this.toggleFilter.bind(this)
     this.setList = this.setList.bind(this)
     this.toogleIsotopeState = this.toogleIsotopeState.bind(this)
   }
@@ -54,6 +58,15 @@ export default class App extends React.Component{
       "isotope" : isotope
     })
   }
+
+  toggleFilter() {
+    const { filter } = this.state
+    filter.state = filter.state === true ? false : true;
+    this.setState({
+      "filter": filter
+    }) 
+  }
+
   render(){
     const {isotope} = this.state
     return(
@@ -61,6 +74,8 @@ export default class App extends React.Component{
       
         <Filter  />
         <ButtonFilter toogle={this.toogleIsotopeState} />
+        < ButtonNav eden="Liste" toggleClick={this.toggleFilter.bind(this)}/>
+        {this.setState.filter ? <ListShop /> : ""}
         <Maps list={isotope.list} />
         { isotope.state ? <Isotope list={isotope.list} setList={this.setList} /> : ''}
       </div>
