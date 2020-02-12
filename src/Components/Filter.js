@@ -12,24 +12,25 @@ class Filter extends React.Component {
         {name : 'Chez Pierrot', heu : "Mer. 12h-15h", meter : "100m"},
         {name : 'Le Bon Chef ', heu : "Mer. 12h-19h", meter : "50m"},
       ],
-      searchDog: '',
+      searchShop: '',
       show : false,
     }
   }
   handleInput = (e) =>{
     console.log(e.target.value)
-    this.setState({ show : true})
   }
   handleClick = () => {
-    console.log('oke')
+    console.log('ok')
+    
+    this.setState({ show : true})
   }
   render(){
     let filter = this.state.shops.filter((shop) => {
-      return shop.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
+      return shop.name.toLowerCase().includes(this.state.searchShop.toLowerCase())
+      console.log(filter)
     })
     return (
       <div className="list_container">
-
         <div className="wrapper_input">
           <input 
               type="text" 
