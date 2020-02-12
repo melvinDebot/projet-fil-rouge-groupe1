@@ -33,7 +33,7 @@ class Filter extends React.Component{
         <div className="wrapper_input">
           <input 
             type="text" 
-            placeholder="Rechercher un lieu" 
+            placeholder="Rechercher unn lieu" 
             className="input-filter" 
             onInput={this.handleInput}
             onClick={this.handleClick}
