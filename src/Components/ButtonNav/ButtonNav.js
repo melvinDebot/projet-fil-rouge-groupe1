@@ -1,10 +1,7 @@
 import React from 'react';
+import './buttonNav.scss';
 
 class ButtonNav extends React.Component {
-
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return(

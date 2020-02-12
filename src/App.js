@@ -2,12 +2,12 @@ import React from 'react';
 import './App.scss';
 
 // Import Components
-import Maps from './Components/Maps';
-import Filter from './Components/Filter';
+import Maps from './Components/Maps/Maps';
+import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
-import ButtonNav from './Components/ButtonNav';
+import ButtonNav from './Components/ButtonNav/ButtonNav';
 import Isotope from './Components/Isotope';
-import ListShop from './Components/ListShop';
+import ListShop from './Components/ListShop/ListShop';
 
 export default class App extends React.Component{
   constructor (props) {

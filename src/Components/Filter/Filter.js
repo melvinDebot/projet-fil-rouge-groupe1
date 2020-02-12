@@ -1,6 +1,6 @@
 import React from 'react';
-import '../App.scss';
-import ListShop from './ListShop';
+import ListShop from '../ListShop/ListShop';
+import './filter.scss';
 
 class Filter extends React.Component {
 
@@ -28,7 +28,7 @@ class Filter extends React.Component {
       return shop.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
     })
     return (
-      <div className="list_container">
+      <div className="filter_input_container">
 
         <div className="wrapper_input">
           <input 
