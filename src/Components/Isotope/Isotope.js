@@ -8,10 +8,8 @@ export class Isotope extends React.Component {
   constructor(props) {
     super(props);
     this.handleClickTech = this.handleClickTech.bind(this);
-    this.filtre = this.filtre.bind(this);
-    this.state = {
-      hide: false
-    }
+    this.filtre = this.filtre.bind(this);    
+    this.close = this.props.close
   }
 
   handleClickTech(e) {
@@ -34,50 +32,49 @@ export class Isotope extends React.Component {
   render() {
     return (
       <div className="isotope-containt">
-        <span className="close"></span>
-      <div className="isotope--block">
-      <h3>Filtres</h3>
-      <h4>Type d'activité</h4>
-        <div className="isotope-button">
-          <label>
-            <Checkbox
-              onClick={()=>{ this.filtre("Restaurant") }}
-              className="filter_checkbox filter_checkbox_concert"
-            />
-            
-            Concert
-          </label>
-          <label>
-            <Checkbox
-              onClick={()=>{ this.filtre("Cinema") }}
-              className="filter_checkbox filter_checkbox_cine"
-            />
-            Cinema
-          </label>
-          <label>
-            <Checkbox
-              onClick={()=>{ this.filtre("Cinema") }}
-              className="filter_checkbox filter_checkbox_parc"
-            />
-            Parcs
-          </label>
-          <label>
-            <Checkbox
-              onClick={()=>{ this.filtre("Cinema") }}
-              className="filter_checkbox filter_checkbox_monument"
-            />
-            Monuments
-          </label>
-          <label>
-            <Checkbox
-              onClick={()=>{ this.filtre("Cinema") }}
-              className="filter_checkbox filter_checkbox_musee"
-            />
-            Musées
-          </label>
+        <span className="close" onClick={this.props.close}></span>
+        <div className="isotope--block">
+          <h3>Filtres</h3>
+          <h4>Type d'activité</h4>
+            <div className="isotope-button">
+              <label>
+                <Checkbox
+                onClick={()=>{ this.filtre("Restaurant") }}
+                className="filter_checkbox filter_checkbox_concert"
+                />
+              
+              Concert
+            </label>
+            <label>
+              <Checkbox
+                onClick={()=>{ this.filtre("Cinema") }}
+                className="filter_checkbox filter_checkbox_cine"
+              />
+              Cinema
+            </label>
+            <label>
+              <Checkbox
+                onClick={()=>{ this.filtre("Cinema") }}
+                className="filter_checkbox filter_checkbox_parc"
+              />
+              Parcs
+            </label>
+            <label>
+              <Checkbox
+                onClick={()=>{ this.filtre("Cinema") }}
+                className="filter_checkbox filter_checkbox_monument"
+              />
+              Monuments
+            </label>
+            <label>
+              <Checkbox
+                onClick={()=>{ this.filtre("Cinema") }}
+                className="filter_checkbox filter_checkbox_musee"
+              />
+              Musées
+            </label>
+          </div>
         </div>
-      </div>
-        
         
       </div>
     );

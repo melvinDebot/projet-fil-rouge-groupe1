@@ -54,15 +54,15 @@ export default class App extends React.Component{
       "isotope" : isotope
     })
   }
+
   render(){
     const {isotope} = this.state
     return(
       <div className="App">
-      
         <Filter  />
-        <ButtonFilter toogle={this.toogleIsotopeState} />
+        <ButtonFilter toogle={this.toogleIsotopeState} />          
         <Maps list={isotope.list} />
-        { isotope.state ? <Isotope list={isotope.list} setList={this.setList} /> : ''}
+        { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''}
       </div>
     )
   }

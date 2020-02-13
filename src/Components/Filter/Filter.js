@@ -38,7 +38,7 @@ class Filter extends React.Component{
             onClick={this.handleClick}
           />
           {this.state.show ? <ListShop filter={filter} close={(()=>{
-            this.setState({show : false})
+            this.setState({show : false} )
           })}/> : ""}
         </div>
       </div>
