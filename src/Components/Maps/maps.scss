@@ -6,4 +6,17 @@
   height: 100%;
   position: absolute;
   top: 0;
+
+  .mapboxgl-ctrl-group:not(:empty) {
+    border-radius: 50%;
+  }
+  .mapboxgl-ctrl-group button {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+  }  
+
+  .mapboxgl-ctrl-bottom-left {
+    display: none;
+  }
 }

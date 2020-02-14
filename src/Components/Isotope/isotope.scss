@@ -7,6 +7,7 @@
   border-top-left-radius: 7%;
   border-top-right-radius: 7%;
   padding-top: 1rem;
+  animation: opacity 0.6s forwards ease-in-out;
 
   .close:before {
     content: "x";
@@ -46,17 +47,20 @@
   }
 
   .filter_checkbox {
-    
+    &:after {
+      content: "";
+      width: 2rem;
+      height: 1.4rem;
+      display: block;
+    }
+
     &.filter_checkbox_concert {
       path {
         fill: #546DE5;
       }
       &:after {
-        content: "";
         background: url(../../Assets/Icone/microphone.svg) no-repeat;
-        width: 2rem;
-        height: 1.4rem;
-        display: block;
+
       }
       
     }
@@ -67,11 +71,7 @@
       }
 
       &:after {
-        content: "";
         background: url(../../Assets/Icone/camera.svg) no-repeat;
-        width: 2rem;
-        height: 1.4rem;
-        display: block;
       }
     }
 
@@ -81,11 +81,7 @@
       }
 
       &:after {
-        content: "";
         background: url(../../Assets/Icone/park.svg) no-repeat;
-        width: 2rem;
-        height: 1.4rem;
-        display: block;
       }
     }
 
@@ -95,11 +91,7 @@
       }
 
       &:after {
-        content: "";
         background: url(../../Assets/Icone/triumph.svg) no-repeat;
-        width: 2rem;
-        height: 1.4rem;
-        display: block;
       }
     }
 
@@ -109,11 +101,7 @@
       }
 
       &:after {
-        content: "";
         background: url(../../Assets/Icone/museum.svg) no-repeat;
-        width: 2rem;
-        height: 1.4rem;
-        display: block;
       }
     }
   }

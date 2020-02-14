@@ -6,6 +6,9 @@ import Maps from './Components/Maps/Maps';
 import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
 import Isotope from './Components/Isotope/Isotope';
+import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
+import ButtonNav from './Components/ButtonNav/ButtonNav';
+
 
 
 export default class App extends React.Component{
@@ -22,7 +25,8 @@ export default class App extends React.Component{
             title : "Le duc",
             longitude : 2.4211505003287126,
             latitude : 48.8512844148994,
-            active : false      
+            active : false ,
+            url : '../../Assets/Icone/park.svg'     
           },
           {
             id : 2,
@@ -71,12 +75,15 @@ export default class App extends React.Component{
       "isotope" : isotope
     })
   }
+
   render(){
-    const isotope = this.state
+    const {isotope} = this.state
     return(
       <div className="App">
         <Filter  />
-        <ButtonFilter toogle={this.toogleIsotopeState} />
+        <ButtonFilter toogle={this.toogleIsotopeState} />    
+        <ButtonDataviz />      
+        <ButtonNav />
         <Maps list={isotope.list} />
         { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''} 
         

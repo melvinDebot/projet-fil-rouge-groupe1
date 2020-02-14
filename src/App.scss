@@ -14,12 +14,27 @@ div, a, span, h1 {
 
 // Button Filter
 .button-filter{
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  background-color: blue;
+  background-color: $primaryColor;
+  border: none;
   position: absolute;
-  right: 28px;
+  right: 2rem;
   z-index: 3;
-  top: 25px;
+  top: 1.8rem;
+  padding-top: .4rem;
+
+  &:after {
+    content: "";
+    mask: url(./Assets/Icone/filter_icn.svg) no-repeat;
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: #fff;
+    display: block;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }

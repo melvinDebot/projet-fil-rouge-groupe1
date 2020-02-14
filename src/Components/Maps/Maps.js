@@ -17,7 +17,7 @@ class Markers extends React.Component{
     const {list} = this.props
     return(
       list.map( city => {
-        let result = city.active ? <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><p>{city.title}</p></Marker> : ''
+        let result = city.active ? <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><img src={city.url}/></Marker> : ''
         return result
       })
     )
@@ -47,7 +47,7 @@ class Maps extends Component {
           {...viewport}
           width="100%"
           height="100%"
-          mapStyle="mapbox://sprites/mapbox/bright-v8"
+          mapStyle="mapbox://sprites/mapbox/dark-v10"
           onViewportChange={this._onViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
         >
