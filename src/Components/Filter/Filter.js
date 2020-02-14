@@ -35,11 +35,7 @@ class Filter extends React.Component{
   handleInput = (e) =>{
     console.log(this.state.show)
     this.setState({ searchDog : e.target.value})
-<<<<<<< HEAD
-    this.handleClick()
 
-=======
->>>>>>> cb333634940ddf7732737d166db5d379018ed37c
   }
 
   render(){

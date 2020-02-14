@@ -25,16 +25,13 @@ class ButtonNav extends React.Component {
   render() {
     return(
       <div className="button">
-
         <div className="button-item btn_cart" 
           style={styleButtonOne} 
         >
-            <p>Carte</p>
+          <p>Carte</p>
         </div>
-  
         <div className="button-item btn_list" style={styleButtonTwo}>
         <p>Liste</p>
-
         </div>
       </div> 
     )
