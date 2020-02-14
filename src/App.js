@@ -9,6 +9,8 @@ import Isotope from './Components/Isotope/Isotope';
 import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
 import ButtonNav from './Components/ButtonNav/ButtonNav';
 
+import park from './Assets/Icone/park.svg';
+
 
 
 export default class App extends React.Component{
@@ -26,7 +28,7 @@ export default class App extends React.Component{
             longitude : 2.4211505003287126,
             latitude : 48.8512844148994,
             active : false ,
-            url : '../../Assets/Icone/park.svg'     
+            url : park
           },
           {
             id : 2,
