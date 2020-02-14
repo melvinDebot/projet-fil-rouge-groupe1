@@ -1,7 +1,7 @@
 @import "./../../App.scss";
 
 .list_shop_container {
-  padding: 25% 2rem 0;
+  padding: 6rem 2rem 0;
   background: white;
   position: absolute;
   top: 0;
@@ -13,10 +13,14 @@
 
   h1 {
     font-size: 1.5rem;
+    margin-top: 2rem;
   }
 
-  .close{
-    border: 1px solid 
+  .close:before {
+    content: "x";
+    font-size: 2rem;
+    float: right;
+    color: #999999;
   }
 }
 
