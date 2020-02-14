@@ -9,10 +9,10 @@ import Isotope from './Components/Isotope/Isotope';
 import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
 
 //Import Assets
-import concert from './Assets/Icone/concert.svg';
-import parc from './Assets/Icone/parc.svg';
-import musee from './Assets/Icone/musee.svg';
-import cinema from './Assets/Icone/cinema.svg';
+import concert from './Assets/Icone/concert_marker.svg';
+import parc from './Assets/Icone/parc_marker.svg';
+import musee from './Assets/Icone/musee_marker.svg';
+import monument from './Assets/Icone/monument_marker.svg';
 
 
 
@@ -53,12 +53,12 @@ export default class App extends React.Component{
           },
           {
             id : 4,
-            name : "Cinema",
+            name : "Monument",
             title : "Louvre",
             longitude : 2.430994731014011,
             latitude : 48.84238356306906,
             active : false, 
-            url : cinema   
+            url : monument   
           },
         ]
       }
