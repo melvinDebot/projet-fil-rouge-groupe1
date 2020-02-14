@@ -7,33 +7,13 @@ import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
 import Isotope from './Components/Isotope/Isotope';
 
+//Import Context Api
+import Context from './Components/Context';
+import ContextProvider from './Components/ContextProvider';
+
 export default class App extends React.Component{
   constructor (props) {
     super(props)
-    this.state = {
-      isotope: {
-        state: false,
-        show : true,
-        list : [
-          {
-            id : 1,
-            name : "Restaurant",
-            title : "Le duc",
-            longitude : 2.4211505003287126,
-            latitude : 48.8512844148994,
-            active : false      
-          },
-          {
-            id : 2,
-            name : "Cinema",
-            title : "Gaumont",
-            longitude : 2.418229003786947,
-            latitude : 48.850736553471464,
-            active : false      
-          },
-        ]
-      }
-    }
     this.setList = this.setList.bind(this)
     this.toogleIsotopeState = this.toogleIsotopeState.bind(this)
   }
@@ -58,11 +38,25 @@ export default class App extends React.Component{
     const {isotope} = this.state
     return(
       <div className="App">
-      
-        <Filter  />
-        <ButtonFilter toogle={this.toogleIsotopeState} />
-        <Maps list={isotope.list} />
-        { isotope.state ? <Isotope list={isotope.list} setList={this.setList} /> : ''}
+        <ContextProvider>
+          <Context.Consumer>
+            {(data) => <div>
+              {
+                data.posts.map(p => <div>
+                  <Filter />
+                  <ButtonFilter toogle={this.toogleIsotopeState} />
+                  <Maps list={p.isotope.list} />
+                  { p.isotope.state ? <Isotope list={p.isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''}
+                </div>)
+              }
+            </div>}
+            {/* <Filter  />
+            <ButtonFilter toogle={this.toogleIsotopeState} />
+            <Maps list={isotope.list} />
+            { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''} */}
+          </Context.Consumer>
+        </ContextProvider>
+        
       </div>
     )
   }

@@ -14,7 +14,10 @@ export class Isotope extends React.Component {
     }
   }
 
-  handleClickTech(e) {
+  handleClickTech() {
+    this.setState(state => {
+
+    })
   }
 
   filtre ( name ) {
@@ -34,7 +37,7 @@ export class Isotope extends React.Component {
   render() {
     return (
       <div className="isotope-containt">
-        <span className="close"></span>
+        <span className="close" onClick={this.props.close}></span>
       <div className="isotope--block">
       <h3>Filtres</h3>
       <h4>Type d'activité</h4>
@@ -56,14 +59,14 @@ export class Isotope extends React.Component {
           </label>
           <label>
             <Checkbox
-              onClick={()=>{ this.filtre("Cinema") }}
+              onClick={()=>{ this.filtre("Monument") }}
               className="filter_checkbox filter_checkbox_parc"
             />
             Parcs
           </label>
           <label>
             <Checkbox
-              onClick={()=>{ this.filtre("Cinema") }}
+              onClick={()=>{ this.filtre("Musee") }}
               className="filter_checkbox filter_checkbox_monument"
             />
             Monuments
