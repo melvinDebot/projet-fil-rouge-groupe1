@@ -4,7 +4,7 @@ import './listShop.scss';
 
 function ListShop(props){
   let shops = props.filter.map((shop, i) => {
-    return <List name={shop.name} heu={shop.heure} meter={shop.meter} key={i} onClick={props.out}/>
+    return <List name={shop.name} username={shop.username} email={shop.email} key={i} onClick={props.out}/>
   })
   return(
     <div className="list_shop_container">
@@ -16,4 +16,5 @@ function ListShop(props){
     </div>
   )
 }
+
 export default ListShop;

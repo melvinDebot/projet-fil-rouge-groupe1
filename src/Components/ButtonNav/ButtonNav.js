@@ -20,12 +20,12 @@ class ButtonNav extends React.Component {
   render() {
     return(
       <div className="button">
-        <div className="button-item btn_cart" style={{background: !this.state.color}} onClick={this.changeColor}>
-            <p>Carte</p>
+        <div className="button-item btn_cart" style={{background: this.state.color}} onClick={!this.changeColor}>
+            <p style={{color: this.state.color}} onClick={this.changeColor}>Carte</p>
         </div>
   
         <div className="button-item btn_list" onClick={this.props.toggleClick} style={{background: this.state.color}}>
-        <p>Liste</p>
+        <p style={{color: this.state.color}} onClick={this.changeColor}>Liste</p>
         </div>
       </div> 
     )

@@ -1,7 +1,8 @@
 @import "./../../App.scss";
+
 .button {
   display: flex;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   bottom: 1.45rem;
   left: 50%;

@@ -45,14 +45,16 @@ export default class App extends React.Component{
     const { isotope } = this.state
     isotope.state = isotope.state === true ? false : true
     console.log(isotope)
+    
     this.setState({
       "isotope" : isotope
     })
   }
+
   setList(list) {
     const {isotope} = this.state
-
     isotope["list"] = list
+
     this.setState({
       "isotope" : isotope
     })
