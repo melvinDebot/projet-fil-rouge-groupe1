@@ -24,7 +24,8 @@ export default class App extends React.Component{
             title : "Le duc",
             longitude : 2.4211505003287126,
             latitude : 48.8512844148994,
-            active : false      
+            active : false ,
+            url : '../../Assets/Icone/park.svg'     
           },
           {
             id : 2,
