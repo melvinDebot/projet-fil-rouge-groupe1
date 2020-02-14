@@ -12,7 +12,10 @@ export class Isotope extends React.Component {
     this.close = this.props.close
   }
 
-  handleClickTech(e) {
+  handleClickTech() {
+    this.setState(state => {
+
+    })
   }
 
   filtre ( name ) {

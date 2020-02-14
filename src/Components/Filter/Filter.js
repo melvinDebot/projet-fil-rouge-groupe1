@@ -15,6 +15,7 @@ class Filter extends React.Component{
         {name : 'La Grande Cuisine', heure : "Mer. 14h-16h", meter : "400m"},
         {name : 'Chez Pierrot', heure : "Mer. 12h-15h",  meter : "50m"},
         {name : 'Le Bon Chef ', heure : "Mer. 12h-19h", meter : "100m"},
+        {name : 'Le Bon Chef ', heure : "Mer. 12h-19h", meter : "100m"},
       ],
       searchDog: '',
     }
@@ -28,12 +29,17 @@ class Filter extends React.Component{
   }
 
   handleClick = () => {
-    this.setState({ show : !this.state.show })
+    this.setState({ show : true })
   }
   
   handleInput = (e) =>{
     console.log(this.state.show)
     this.setState({ searchDog : e.target.value})
+<<<<<<< HEAD
+    this.handleClick()
+
+=======
+>>>>>>> cb333634940ddf7732737d166db5d379018ed37c
   }
 
   render(){

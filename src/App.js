@@ -10,9 +10,10 @@ import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
 import ButtonNav from './Components/ButtonNav/ButtonNav';
 
 
+
 export default class App extends React.Component{
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
       isotope: {
         state: false,
@@ -24,7 +25,8 @@ export default class App extends React.Component{
             title : "Le duc",
             longitude : 2.4211505003287126,
             latitude : 48.8512844148994,
-            active : false      
+            active : false ,
+            url : '../../Assets/Icone/park.svg'     
           },
           {
             id : 2,
@@ -32,6 +34,22 @@ export default class App extends React.Component{
             title : "Gaumont",
             longitude : 2.418229003786947,
             latitude : 48.850736553471464,
+            active : false      
+          },
+          {
+            id : 3,
+            name : "Monument",
+            title : "Tour Eiffel",
+            longitude : 2.430304002373407,
+            latitude : 48.843756303946755,
+            active : false      
+          },
+          {
+            id : 4,
+            name : "Musee",
+            title : "Louvre",
+            longitude : 2.430994731014011,
+            latitude : 48.84238356306906,
             active : false      
           },
         ]
@@ -69,7 +87,8 @@ export default class App extends React.Component{
         <ButtonDataviz />      
         <ButtonNav />
         <Maps list={isotope.list} />
-        { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''}
+        { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''} 
+        
       </div>
     )
   }
