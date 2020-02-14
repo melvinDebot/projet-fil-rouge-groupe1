@@ -17,7 +17,7 @@ class Markers extends React.Component{
     const {list} = this.props
     return(
       list.map( city => {
-        let result = city.active ? <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><img src={city.url}/></Marker> : ''
+        let result = city.active ? <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><p>{city.title}</p></Marker> : ''
         return result
       })
     )
