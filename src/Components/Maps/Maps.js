@@ -18,6 +18,7 @@ class Markers extends React.Component{
     return(
       list.map( city => {
         let result = city.active ? <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><img src={city.url} alt={city.title}/></Marker> : ''
+
         return result
       })
     )
