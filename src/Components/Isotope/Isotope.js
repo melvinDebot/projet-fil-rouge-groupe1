@@ -42,7 +42,7 @@ export class Isotope extends React.Component {
             <div className="isotope-button">
               <label>
                 <Checkbox
-                onClick={()=>{ this.filtre("Restaurant") }}
+                onClick={()=>{ this.filtre("Concert") }}
                 className="filter_checkbox filter_checkbox_concert"
                 />
               
@@ -57,21 +57,21 @@ export class Isotope extends React.Component {
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre("Cinema") }}
+                onClick={()=>{ this.filtre("Parc") }}
                 className="filter_checkbox filter_checkbox_parc"
               />
               Parcs
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre("Cinema") }}
+                onClick={()=>{ this.filtre("Monument") }}
                 className="filter_checkbox filter_checkbox_monument"
               />
               Monuments
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre("Cinema") }}
+                onClick={()=>{ this.filtre("Musee") }}
                 className="filter_checkbox filter_checkbox_musee"
               />
               Musées

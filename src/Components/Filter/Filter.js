@@ -1,6 +1,7 @@
 import React from 'react';
 import ListShop from '../ListShop/ListShop';
 import './filter.scss';
+import ButtonNav from '../ButtonNav/ButtonNav';
 import axios from 'axios';
 
 class Filter extends React.Component{
@@ -55,6 +56,7 @@ class Filter extends React.Component{
           {this.state.show ? <ListShop filter={filter} close={(()=>{
             this.setState({show : false} )
           })}/> : ""}
+          <ButtonNav clicked={this.handleClick}/>
         </div>
       </div>
       

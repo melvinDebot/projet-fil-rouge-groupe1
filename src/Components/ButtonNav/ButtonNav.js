@@ -1,36 +1,35 @@
 import React from 'react';
 import './buttonNav.scss';
 
-const styleButtonOne = {
-  background : "#0885C2",
-  colorText : '#fff'
-}
-const styleButtonTwo = {
-  background : "#fff",
-  colorText : '#0885C2'
-}
-
 class ButtonNav extends React.Component {
   constructor(props){
     super(props);
     this.state = { 
+      colorBlue : "#0885C2",
+      colorWhite : "#fff"
     };
   }
 
   handleToggle = () => {
-    
+    this.setState ({
+      colorBlue : this.state.colorWhite,
+      colorWhite : this.state.colorBlue
+    })
   }
 
 
   render() {
     return(
-      <div className="button">
+      <div className="button" onClick={this.handleToggle}>
         <div className="button-item btn_cart" 
-          style={styleButtonOne} 
+          style={{background : this.state.colorBlue, color : this.state.colorWhite}} 
         >
           <p>Carte</p>
         </div>
-        <div className="button-item btn_list" style={styleButtonTwo}>
+        <div className="button-item btn_list" 
+          style={{background : this.state.colorWhite, color : this.state.colorBlue}}
+          onClick={this.props.clicked}
+        >
         <p>Liste</p>
         </div>
       </div> 

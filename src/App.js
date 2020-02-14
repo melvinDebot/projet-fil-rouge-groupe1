@@ -7,9 +7,12 @@ import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
 import Isotope from './Components/Isotope/Isotope';
 import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
-import ButtonNav from './Components/ButtonNav/ButtonNav';
 
-import park from './Assets/Icone/park.svg';
+//Import Assets
+import concert from './Assets/Icone/concert.svg';
+import parc from './Assets/Icone/parc.svg';
+import musee from './Assets/Icone/musee.svg';
+import cinema from './Assets/Icone/cinema.svg';
 
 
 
@@ -23,36 +26,39 @@ export default class App extends React.Component{
         list : [
           {
             id : 1,
-            name : "Restaurant",
+            name : "Concert",
             title : "Le duc",
             longitude : 2.4211505003287126,
             latitude : 48.8512844148994,
             active : false ,
-            url : park
+            url : concert
           },
           {
             id : 2,
-            name : "Cinema",
-            title : "Gaumont",
+            name : "Parc",
+            title : "Parc foresstier",
             longitude : 2.418229003786947,
             latitude : 48.850736553471464,
-            active : false      
+            active : false, 
+            url : parc 
           },
           {
             id : 3,
-            name : "Monument",
-            title : "Tour Eiffel",
+            name : "Musee",
+            title : "Louvre",
             longitude : 2.430304002373407,
             latitude : 48.843756303946755,
-            active : false      
+            active : false, 
+            url : musee 
           },
           {
             id : 4,
-            name : "Musee",
+            name : "Cinema",
             title : "Louvre",
             longitude : 2.430994731014011,
             latitude : 48.84238356306906,
-            active : false      
+            active : false, 
+            url : cinema   
           },
         ]
       }
@@ -87,7 +93,7 @@ export default class App extends React.Component{
         <Filter  />
         <ButtonFilter toogle={this.toogleIsotopeState} />    
         <ButtonDataviz />      
-        <ButtonNav />
+        
         <Maps list={isotope.list} />
         { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''} 
         
