@@ -35,7 +35,7 @@ export default class App extends React.Component{
     })
   }
   render(){
-    const {isotope} = this.state
+    const isotope = this.state
     return(
       <div className="App">
         <ContextProvider>
