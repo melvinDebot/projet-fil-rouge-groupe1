@@ -47,7 +47,7 @@ class Maps extends Component {
           {...viewport}
           width="100%"
           height="100%"
-          mapStyle="mapbox://sprites/mapbox/bright-v8"
+          mapStyle="mapbox://sprites/mapbox/dark-v10"
           onViewportChange={this._onViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
         >

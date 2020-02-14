@@ -6,6 +6,9 @@ import Maps from './Components/Maps/Maps';
 import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
 import Isotope from './Components/Isotope/Isotope';
+import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
+import ButtonNav from './Components/ButtonNav/ButtonNav';
+
 
 export default class App extends React.Component{
   constructor (props) {
@@ -60,7 +63,9 @@ export default class App extends React.Component{
     return(
       <div className="App">
         <Filter  />
-        <ButtonFilter toogle={this.toogleIsotopeState} />          
+        <ButtonFilter toogle={this.toogleIsotopeState} />    
+        <ButtonDataviz />      
+        <ButtonNav />
         <Maps list={isotope.list} />
         { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''}
       </div>
