@@ -9,15 +9,7 @@ class Filter extends React.Component{
     super(props);
     this.state = {
       show : false,
-      data: [],
       users: [],
-      
-      shops : [
-        {name : 'La Grande Cuisine', heure : "Mer. 14h-16h", meter : "400m"},
-        {name : 'Chez Pierrot', heure : "Mer. 12h-15h",  meter : "50m"},
-        {name : 'Le Bon Chef ', heure : "Mer. 12h-19h", meter : "100m"},
-        {name : 'Le Bon Chef ', heure : "Mer. 12h-19h", meter : "100m"},
-      ],
       searchDog: '',
     }
   }

@@ -50,13 +50,6 @@ export class Isotope extends React.Component {
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre("Cinema") }}
-                className="filter_checkbox filter_checkbox_cine"
-              />
-              Cinema
-            </label>
-            <label>
-              <Checkbox
                 onClick={()=>{ this.filtre("Parc") }}
                 className="filter_checkbox filter_checkbox_parc"
               />
