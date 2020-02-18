@@ -67,6 +67,12 @@ export default class App extends React.Component{
     this.toogleIsotopeState = this.toogleIsotopeState.bind(this)
   }
 
+  componentDidMount() {
+    fetch("https://www.w3dnetwork.com/api/c9a7ca131b2a9eb6fcffa46b84ca23dd.json")
+    .then((response) => response.json())
+    .then(data => console.log(data))
+  }
+
   toogleIsotopeState() {
     const { isotope } = this.state
     isotope.state = isotope.state === true ? false : true

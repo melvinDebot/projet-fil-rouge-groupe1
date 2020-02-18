@@ -22,12 +22,6 @@ class Filter extends React.Component{
     }
   }
 
-  componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
-      this.setState({users: res.data});
-      console.log(this.state.users);
-    })
-  }
 
   handleClick = () => {
     this.setState({ show : true })

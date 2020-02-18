@@ -7,16 +7,16 @@ function List(props){
     <div className="box">
       <div className="box_img">
         <img src={imgOne} alt="" />
-        <div className="block_img">{props.email}</div>
+        <div className="block_img">{props.name}</div>
       </div>
 
       <div className="box_text">
-        <p>{props.name}</p>
+        <p>{props.meter}</p>
       </div>
 
       <div className="box_desc">
         <p className="desc">Ouvert</p>
-        <p>{props.username}</p>
+        <p>{props.heure}</p>
       </div>
     </div>
   )
