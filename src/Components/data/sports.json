@@ -1,0 +1,165 @@
+{
+  "sports": [
+    {
+      "lieu": "Stade de France",
+      "ville": "Saint-Denis",
+      "meter": "400m",
+      "latitude": 48.9261,
+      "longitude": 2.3607
+    },
+    {
+      "lieu": "Centre nautique",
+      "ville": "Saint-Denis",
+      "meter": "50m",
+      "latitude": 48.9206,
+      "longitude": 2.3549
+    },
+    {
+      "lieu": "Stand de tir du Bourget",
+      "ville": "Le Bourget",
+      "meter": "90m",
+      "latitude": 48.9365,
+      "longitude": 2.4321
+    },
+    {
+      "lieu": "Parc des expositions du Bourget",
+      "ville": "Le Bourget",
+      "meter": "90m",
+      "latitude": 48.9365,
+      "longitude": 2.4321
+    },
+    {
+      "lieu": "Champ-de-Mars",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8529,
+      "longitude": 2.2984
+    },
+    {
+      "lieu": "Tour Eiffel",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.855,
+      "longitude": 2.2944
+    },
+    {
+      "lieu": "Champs-Élysées",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8697953,
+      "longitude": 2.3056317
+    },
+    {
+      "lieu": "Grand Palais",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8629,
+      "longitude": 2.3126
+    },
+    {
+      "lieu": "Grand Palais éphémère",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8629,
+      "longitude": 2.3126
+    },
+    {
+      "lieu": "Esplanade des Invalides",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8558494,
+      "longitude": 2.3125685
+    },
+    {
+      "lieu": "Parc des expositions de la porte de Versailles",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8287,
+      "longitude": 2.2891
+    },
+    {
+      "lieu": "Parc des Princes",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8381,
+      "longitude": 2.2531
+    },
+    {
+      "lieu": "Place de la Concorde",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8656331,
+      "longitude": 2.3212357
+    },
+    {
+      "lieu": "Stade Jean-Bouin",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8401,
+      "longitude": 2.2529
+    },
+    {
+      "lieu": "Stade Roland-Garros",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8439,
+      "longitude": 2.2493
+    },
+    {
+      "lieu": "Palais omnisports de Paris-Bercy",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8352,
+      "longitude": 2.3785
+    },
+    {
+      "lieu": "Paris Arena II",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.8961,
+      "longitude": 2.3614
+    },
+    {
+      "lieu": "Paris La Défense Arena",
+      "ville": "Nanterre",
+      "meter": "90m",
+      "latitude": 48.8924,
+      "longitude": 2.2295
+    },
+    {
+      "lieu": "Stade olympique Yves-du-Manoir",
+      "ville": "Colombes",
+      "meter": "90m",
+      "latitude": 48.9261,
+      "longitude": 2.2479
+    },
+    {
+      "lieu": "Zénith de Paris",
+      "ville": "Paris",
+      "meter": "90m",
+      "latitude": 48.891,
+      "longitude": 2.3933
+    },
+    {
+      "lieu": "Base nautique de Vaires-sur-Marne",
+      "ville": "Vaires-sur-Marne",
+      "meter": "90m",
+      "latitude": 48.846826,
+      "longitude": 2.3483836
+    },
+    {
+      "lieu": "Château de Versailles",
+      "ville": "Versailles",
+      "meter": "90m",
+      "latitude": 48.8015,
+      "longitude": 2.1204
+    },
+    {
+      "lieu": "Colline d'Élancourt",
+      "ville": "Trappes",
+      "meter": "90m",
+      "latitude": 48.7625,
+      "longitude": 1.9679
+    }
+  ]
+}
