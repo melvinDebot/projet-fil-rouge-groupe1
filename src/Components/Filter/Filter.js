@@ -15,10 +15,9 @@ class Filter extends React.Component{
   }
 
   componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
-      this.setState({users: res.data});
-      console.log(this.state.users);
-    })
+    fetch(`https://www.w3dnetwork.com/api/bf06ea2ceca83316c04a4264f91b0f3b.json`)
+    .then(res => res.json())
+    
   }
 
   handleClick = () => {
