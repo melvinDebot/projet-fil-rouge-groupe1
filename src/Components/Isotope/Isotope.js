@@ -71,6 +71,31 @@ export class Isotope extends React.Component {
             </label>
           </div>
         </div>
+        <div className="isotope--time">
+          <h4>Temps disponible </h4>
+          <div>
+            <button>10min</button>
+            <button>20min</button>
+            <button>30min</button>
+            <button>+30min</button>
+            <button>1h - 2h</button>
+          </div>
+        </div>
+        <div className="isotope-horaire">
+          <h4>Plage Horaire </h4>
+          De <input placeholder="12h" type="text" /> à <input placeholder="14h" type="text" /> 
+        </div>
+        <div className="isotope--time">
+          <h4>Temps disponible </h4>
+          <div>
+            <button>2min</button>
+            <button>5min</button>
+            <button>10min</button>
+            <button>20min</button>
+            <button>30min</button>
+            <button>+30min</button>
+          </div>
+        </div>
         
       </div>
     );

@@ -51,11 +51,13 @@ class Maps extends Component {
           mapStyle="mapbox://sprites/mapbox/light-v10"
           onViewportChange={this._onViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
+          
         >
           <GeolocateControl
             style={geolocateStyle}
             positionOptions={{enableHighAccuracy: true}}
             trackUserLocation={true}
+            showUserLocation={true}
           />
           <Markers list={this.props.list} className="filter-item"/>
         </MapGL>

@@ -31,6 +31,7 @@ export default class App extends React.Component{
             longitude : 2.4211505003287126,
             latitude : 48.8512844148994,
             active : false ,
+            
             url : concert
           },
           {
