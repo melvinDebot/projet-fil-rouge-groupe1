@@ -10,14 +10,18 @@ class Filter extends React.Component{
     this.state = {
       show : false,
       users: [],
+      horaires: [],
+      bibliotheques: [],
       searchDog: '',
     }
   }
 
   componentDidMount() {
-    fetch(`https://www.w3dnetwork.com/api/bf06ea2ceca83316c04a4264f91b0f3b.json`)
-    .then(res => res.json())
-    
+
+    axios.get("http://127.0.0.1:8000/api/bibliotheques?page=1").then(res => {
+      this.setState({bibliotheques: res.data});
+      console.log(this.state.bibliotheques)
+    })
   }
 
   handleClick = () => {
@@ -31,8 +35,8 @@ class Filter extends React.Component{
   }
 
   render(){
-    let filter = this.state.users.filter((user) => {
-      return user.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
+    let filter = this.state.horaires.filter((horaire) => {
+      return horaire.Name.toLowerCase().includes(this.state.searchDog.toLowerCase())
     })
     return(
       <div className="filter_input_container">
