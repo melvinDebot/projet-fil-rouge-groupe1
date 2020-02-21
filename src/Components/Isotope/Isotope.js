@@ -7,15 +7,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 export class Isotope extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClickTech = this.handleClickTech.bind(this);
     this.filtre = this.filtre.bind(this);    
     this.close = this.props.close
-  }
-
-  handleClickTech() {
-    this.setState(state => {
-
-    })
   }
 
   filtre ( name ) {
@@ -30,6 +23,20 @@ export class Isotope extends React.Component {
     });
     console.log(newList)
     this.props.setList(newList)
+  }
+
+  filtreTime (time){
+    const { list } = this.props
+    let newListTime = list.map(elem => {
+      if(elem.time === time){
+        elem.active = elem.active === true ? false : true
+        return elem
+      } else {
+        return elem
+      }
+    })
+    console.log(newListTime)
+    this.props.setList(newListTime)
   }
 
   render() {
@@ -74,11 +81,11 @@ export class Isotope extends React.Component {
         <div className="isotope--time">
           <h4>Temps disponible </h4>
           <div>
-            <button>10min</button>
-            <button>20min</button>
-            <button>30min</button>
-            <button>+30min</button>
-            <button>1h - 2h</button>
+            <button onClick={()=> {this.filtreTime(10)}}>10min</button>
+            <button onClick={()=> {this.filtreTime(20)}}>20min</button>
+            <button onClick={()=> {this.filtreTime(30)}}>30min</button>
+            <button onClick={()=> {this.filtreTime(40)}}>+30min</button>
+            <button onClick={()=> {this.filtreTime(50)}}>1h - 2h</button>
           </div>
         </div>
         <div className="isotope-horaire">
@@ -88,13 +95,16 @@ export class Isotope extends React.Component {
         <div className="isotope--time">
           <h4>Temps disponible </h4>
           <div>
-            <button>2min</button>
-            <button>5min</button>
-            <button>10min</button>
-            <button>20min</button>
-            <button>30min</button>
-            <button>+30min</button>
+            <button onClick={()=> {this.filtreTime(2)}}>2min</button>
+            <button onClick={()=> {this.filtreTime(5)}}>5min</button>
+            <button onClick={()=> {this.filtreTime(10)}}>10min</button>
+            <button onClick={()=> {this.filtreTime(20)}}>20min</button>
+            <button onClick={()=> {this.filtreTime(30)}}>30min</button>
+            <button onClick={()=> {this.filtreTime(40)}}>+30min</button>
           </div>
+        </div>
+        <div className="isotope--next">
+          <button onClick={this.props.close}>Suivant</button>
         </div>
         
       </div>

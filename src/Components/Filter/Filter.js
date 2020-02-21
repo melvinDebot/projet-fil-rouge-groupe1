@@ -17,7 +17,7 @@ class Filter extends React.Component{
   }
 
   componentDidMount(){
-    fetch("https://jsonplaceholder.typicode.com/todos/")
+    fetch("https://www.w3dnetwork.com/api/4974193e295cc198b39049e3f670d747.json")
     .then(res => res.json())
     .then(json => this.setState({ shops: json }));
     console.log(this.state.shop)
@@ -37,7 +37,7 @@ class Filter extends React.Component{
   render(){
     console.log(this.state)
     let filter = Array.isArray(this.state.shops) ? this.state.shops.filter((shop) => {
-      return shop.title.toLowerCase().includes(this.state.searchDog.toLocaleLowerCase())
+      return shop.name.toLowerCase().includes(this.state.searchDog.toLocaleLowerCase())
     }) : []
     return(
       <div className="filter_input_container">

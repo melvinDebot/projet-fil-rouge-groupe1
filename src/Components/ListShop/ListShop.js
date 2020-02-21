@@ -4,7 +4,7 @@ import './listShop.scss';
 
 function ListShop(props){
   let shops = props.filter.map((shop, i) => {
-    return <List title={shop.title} heure={shop.heure} meter={shop.meter} key={i} onClick={props.out}/>
+    return <List name={shop.name} heure={shop.heure} meter={shop.meter} key={i} onClick={props.out}/>
   })
   return(
     <div className="list_shop_container">

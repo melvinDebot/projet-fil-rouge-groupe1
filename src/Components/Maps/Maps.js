@@ -31,7 +31,7 @@ class Maps extends Component {
     viewport: {
       latitude: 48.851343799999995,
       longitude: 2.4205886,
-      zoom: 16,
+      zoom: 13,
       bearing: 0,
       pitch: 0
     }
