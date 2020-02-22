@@ -1,5 +1,5 @@
 import React from 'react';
-import ListShop from '../ListShop/ListShop';
+import ListShop from '../ListShop/ListShop'
 import './filter.scss';
 import ButtonNav from '../ButtonNav/ButtonNav';
 import axios from 'axios';
@@ -9,49 +9,74 @@ class Filter extends React.Component{
     super(props);
     this.state = {
       show : false,
-      users: [],
+      shops : [],
       searchDog: '',
+      isLoading: true,
+      errors: null
     }
   }
 
-  componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
-      this.setState({users: res.data});
-      console.log(this.state.users);
+  getShops() {
+    axios.get("http://127.0.0.1:8000/api/epreuves/?hydra:member")
+    .then(response =>
+      response.data['hydra:member'].map(shop => ({
+        Nom: `${shop.Nom}`
+      }))
+    )
+    .then(shops => {
+      this.setState({
+        shops,
+        isLoading: false,
+      });
     })
+    .catch(error => this.setState({ error, isLoading: false }));
   }
+
+  componentDidMount(){
+    this.getShops()
+  }
+
 
   handleClick = () => {
     this.setState({ show : true })
   }
-  
+
   handleInput = (e) =>{
-    console.log(this.state.show)
     this.setState({ searchDog : e.target.value})
     this.handleClick()
   }
 
   render(){
-    let filter = this.state.users.filter((user) => {
-      return user.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
-    })
+    const {shops} = this.state;
+    let filter = Array.isArray(this.state.shops) ? this.state.shops.filter((shop) => {
+      return shop.Nom.toLowerCase().includes(this.state.searchDog.toLowerCase());
+    }) : "";
+    console.log(filter)
+
     return(
       <div className="filter_input_container">
         <div className="wrapper_input">
-          <input 
-            type="text" 
-            placeholder="Rechercher un lieu" 
-            className="input-filter" 
+          <input
+            type="text"
+            placeholder="Rechercher un lieu"
+            className="input-filter"
             onInput={this.handleInput}
             onClick={this.handleClick}
           />
-          {this.state.show ? <ListShop filter={filter} close={(()=>{
-            this.setState({show : false} )
-          })}/> : ""}
+
+          { this.state.show ? (
+              shops.map(shop => {
+                const { Nom } = shop;
+                return <ListShop key={Nom} filter={filter} shop={shop} close={( () => {
+                  this.setState({show : false} )
+                })}/>
+              })
+            ) : (
+              " "
+          )}
           <ButtonNav clicked={this.handleClick}/>
         </div>
       </div>
-      
     )
   }
 }
