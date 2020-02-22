@@ -4,14 +4,12 @@ import './listShop.scss';
 
 function ListShop(props){
   let shops = props.filter.map((shop, i) => {
-    return <List name={shop.name} username={shop.username} email={shop.email} key={i} onClick={props.out}/>
+    return <List name={shop.Nom} username={shop.Rue} email={shop.numero} key={i} onClick={props.out}/>
   })
   return(
     <div className="list_shop_container">
       <div className="close" onClick={props.close}></div>
-      <h1>Restaurant</h1>
-      {shops}
-      <h1>Boutique</h1>
+      <h1>Bibliothèque</h1>
       {shops}
     </div>
   )
