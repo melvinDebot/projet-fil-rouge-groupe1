@@ -1,7 +1,8 @@
 import React from 'react';
+import ListShop from '../ListShop/ListShop'
 import './filter.scss';
 import ButtonNav from '../ButtonNav/ButtonNav';
-import axios from "axios";
+import axios from 'axios';
 
 class Filter extends React.Component{
   constructor(props){
@@ -16,7 +17,7 @@ class Filter extends React.Component{
   }
 
   getShops() {
-    axios.get("http://127.0.0.1:8000/api/bibliotheques?hydra:member=9")
+    axios.get("http://127.0.0.1:8000/api/bibliotheques/?hydra:member")
     .then(response =>
       response.data['hydra:member'].map(shop => ({
         Nom: `${shop.Nom}`,
@@ -48,7 +49,7 @@ class Filter extends React.Component{
   }
 
   render(){
-    const { isLoading, shops} = this.state;
+    const {shops} = this.state;
     let filter = Array.isArray(this.state.shops) ? this.state.shops.filter((shop) => {
       return shop.Nom.toLowerCase().includes(this.state.searchDog.toLowerCase());
     }) : "";
@@ -64,25 +65,17 @@ class Filter extends React.Component{
             onInput={this.handleInput}
             onClick={this.handleClick}
           />
-          { !isLoading ? (           
-            shops.map(shop => {
-            const { Nom, numero, Rue } = shop;
-              return (
-                <div key={Nom} >
-                  <p>{Nom}</p>
-                  <p>{numero}</p>
-                  <p>{Rue}</p>
-                  <hr />
-                </div>
-                )
-              })
-              ) : (
-                <p>Loading...</p>
-          )}
 
-          {/* {this.state.show ? <ListShop filter={filter} close={(()=>{
-            this.setState({show : false} )
-          })}/> : ""} */}
+          { this.state.show ? (
+              shops.map(shop => {
+                const { Nom } = shop;
+                return <ListShop key={Nom} filter={filter} shop={shop} close={( () => {
+                  this.setState({show : false} )
+                })}/> 
+              })
+            ) : (
+              " "
+          )}
           <ButtonNav clicked={this.handleClick}/>
         </div>
       </div>

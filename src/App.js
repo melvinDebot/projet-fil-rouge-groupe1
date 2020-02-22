@@ -31,6 +31,7 @@ export default class App extends React.Component{
             longitude : 2.4211505003287126,
             latitude : 48.8512844148994,
             active : false ,
+            time : 10,
             url : concert
           },
           {
@@ -40,6 +41,7 @@ export default class App extends React.Component{
             longitude : 2.418229003786947,
             latitude : 48.850736553471464,
             active : false, 
+            time : 30,
             url : parc 
           },
           {
@@ -49,6 +51,7 @@ export default class App extends React.Component{
             longitude : 2.430304002373407,
             latitude : 48.843756303946755,
             active : false, 
+            time : 50,
             url : musee 
           },
           {
@@ -58,6 +61,7 @@ export default class App extends React.Component{
             longitude : 2.430994731014011,
             latitude : 48.84238356306906,
             active : false, 
+            time : 60,
             url : monument   
           },
         ]
