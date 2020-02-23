@@ -53,7 +53,6 @@ class Filter extends React.Component{
     let filter = Array.isArray(this.state.shops) ? this.state.shops.filter((shop) => {
       return shop.Nom.toLowerCase().includes(this.state.searchDog.toLowerCase());
     }) : "";
-    console.log(filter)
 
     return(
       <div className="filter_input_container">
@@ -65,7 +64,7 @@ class Filter extends React.Component{
             onInput={this.handleInput}
             onClick={this.handleClick}
           />
-
+       
           { this.state.show ? (
               shops.map(shop => {
                 const { Nom } = shop;

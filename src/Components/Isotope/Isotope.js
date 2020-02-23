@@ -12,8 +12,8 @@ export class Isotope extends React.Component {
   }
 
   filtre ( name ) {
-    const { list  } = this.props
-    let newList = list.map( element => {
+    const { shops  } = this.props
+    let newList = shops.map( element => {
       if ( element.name === name)  {
         element.active = element.active === true ? false : true
         return element
@@ -26,8 +26,8 @@ export class Isotope extends React.Component {
   }
 
   filtreTime (time){
-    const { list } = this.props
-    let newListTime = list.map(elem => {
+    const { shops } = this.props
+    let newListTime = shops.map(elem => {
       if(elem.time === time){
         elem.active = elem.active === true ? false : true
         return elem
