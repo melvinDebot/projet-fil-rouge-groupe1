@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MapGL, {GeolocateControl, Marker} from 'react-map-gl';
 import './maps.scss';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoibWVsdmluZGJ0IiwiYSI6ImNrNjBqb2RtcjA4M3Qzb21ieDB5bzE3ZmkifQ.g8UJ8r3es_zfy-NE9RVFgg'; // Set your mapbox token here
 
@@ -14,12 +15,13 @@ const geolocateStyle = {
 class Markers extends React.Component{
 
   render(){
-    const {list} = this.props
+    const {shops} = this.props
     return(
-      list.map( city => {
-        let result = city.active ? <Marker key={city.id} longitude={city.longitude} latitude={city.latitude}><img src={city.url} alt={city.title}/></Marker> : ''
+      shops.map( city => {
+        let result = city.active ? <Marker key={city.id} longitude={city.coordonne[1]} latitude={city.coordonne[0]}><img src={city.url} alt={city.url}/></Marker> : ''
 
         return result
+        
       })
     )
   }
@@ -57,7 +59,7 @@ class Maps extends Component {
             positionOptions={{enableHighAccuracy: true}}
             trackUserLocation={true}
           />
-          <Markers list={this.props.list} className="filter-item"/>
+          <Markers shops={this.props.shops} className="filter-item"/>
         </MapGL>
       </div>
       
