@@ -17,12 +17,12 @@ class ButtonNav extends React.Component {
     })
   }
 
-
+  
   render() {
     return(
       <div className="button" onClick={this.handleToggle}>
         <div className="button-item btn_cart" 
-          style={{background : this.state.colorBlue, color : this.state.colorWhite}} 
+          style={{background : this.state.colorBlue, color : this.state.colorWhite}}
         >
           <p>Carte</p>
         </div>
