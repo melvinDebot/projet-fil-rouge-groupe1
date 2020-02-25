@@ -19,6 +19,16 @@ import ButtonNav from './Components/ButtonNav/ButtonNav';
 // import monument from './Assets/Icone/monument_marker.svg';
 // import ButtonNav from './Components/ButtonNav/ButtonNav';
 
+let one = "http://127.0.0.1:8000/monuments";
+let two = "http://127.0.0.1:8000/musee";
+let three = "http://127.0.0.1:8000/parcs";
+let four = "http://127.0.0.1:8000/concerts";
+
+const urlmonuments = axios.get(one);
+const urlmusee = axios.get(two);
+const urlparcs = axios.get(three);
+const urlconcerts = axios.get(four);
+
 export default class App extends React.Component{
   constructor (props) {
     super(props);
@@ -27,7 +37,13 @@ export default class App extends React.Component{
       isotope: {
         state: false,
         show : true,
-        shops: [],
+        shops: [
+          [],
+          [],
+          [],
+          [],
+        ]
+        ,
       },
       showMe : false
     }
@@ -36,29 +52,53 @@ export default class App extends React.Component{
     this.showMe = this.showMe.bind(this)
   }
 
-  getShops() {
-    axios.get("http://127.0.0.1:8000/api/concerts/?hydra:member")
-    .then(response =>
-      response.data['hydra:member'].map(shop => ({
-        Nom: `${shop.Nom}`,
-        Lieux: `${shop.Lieux}`,
-        Coordonne: `${shop.Coordonne}`.split(","),
-        Url: `${shop.Url}`
-      }))
+  getActivityMap() {
+
+    axios.all([urlmonuments, urlmusee, urlparcs, urlconcerts])
+    .then(
+      axios.spread((...actives) => {
+        let newIsotop = this.state.isotope
+        const shops = [
+          actives[0].data,
+          actives[1].data,
+          actives[2].data,
+          actives[3].data
+        ]
+        
+        newIsotop.shops = shops
+        this.setState(newIsotop)
+      })
     )
-    .then((shops) => {
-      let isotope = this.state.isotope
-      isotope.shops = shops
-      this.setState({
-        isotope
-      });
-    })
-    .catch(error => this.setState({ error }));
+    .catch(error => this.setState({ error, isLoading: false }));
   }
 
   componentDidMount(){
-    this.getShops()
+    this.getActivityMap()
   }
+
+  // getShops() {
+  //   axios.get("http://127.0.0.1:8000/api/concerts/?hydra:member")
+  //   .then(response =>
+  //     response.data['hydra:member'].map(shop => ({
+  //       Nom: `${shop.Nom}`,
+  //       Lieux: `${shop.Lieux}`,
+  //       Coordonne: `${shop.Coordonne}`.split(","),
+  //       Url: `${shop.Url}`
+  //     }))
+  //   )
+  //   .then((shops) => {
+  //     let isotope = this.state.isotope
+  //     isotope.shops = shops
+  //     this.setState({
+  //       isotope
+  //     });
+  //   })
+  //   .catch(error => this.setState({ error }));
+  // }
+
+  // componentDidMount(){
+  //   this.getShops()
+  // }
 
   toogleIsotopeState() {
     const { isotope } = this.state
@@ -72,7 +112,6 @@ export default class App extends React.Component{
   setList(shops) {
     const {isotope} = this.state
     isotope["shops"] = shops
-
     this.setState({
       "isotope" : isotope
     })
@@ -91,7 +130,7 @@ export default class App extends React.Component{
         <ButtonFilter toogle={this.toogleIsotopeState} />    
         <ButtonDataviz />      
         
-        <Maps shops={isotope.shops} />
+        { isotope.shops.length ? <Maps shops={isotope.shops} /> : null }
         { isotope.state ? <Isotope shops={isotope.shops} setList={this.setList} close={this.toogleIsotopeState}/> : ''} 
         <ButtonNav clicked={this.showMe}/>
         {this.state.showMe ? <ListActivty close={this.showMe}/> : ""}

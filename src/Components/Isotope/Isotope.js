@@ -2,6 +2,7 @@ import React from 'react';
 import "./isotope.scss";
 import Checkbox from '@material-ui/core/Checkbox';
 
+
 export class Isotope extends React.Component {
   constructor(props) {
     super(props);
@@ -9,21 +10,21 @@ export class Isotope extends React.Component {
     this.close = this.props.close
   }
 
-  filtre ( name ) {
+  filtre ( Nom ) {
     const { shops  } = this.props
     let newList = shops.map( element => {
-      if ( element.name === name)  {
+      if ( element.shop === Nom)  {
         element.active = element.active === true ? false : true
         return element
       } else {
         return element
       }
     });
-    //console.log(newList)
+    console.log(newList)
     this.props.setList(newList)
   }
 
-  filtreTime (time){
+  filtreTime (time) {
     const { shops } = this.props
     let newListTime = shops.map(elem => {
       if(elem.time === time){
