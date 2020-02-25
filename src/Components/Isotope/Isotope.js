@@ -8,21 +8,45 @@ export class Isotope extends React.Component {
     super(props);
     this.filtre = this.filtre.bind(this);    
     this.close = this.props.close
+    this.state = {
+      selectedShops : []
+
+    }
+    // this.filtreEvents = this.filtreEvents.bind(this);    
+
   }
 
-  filtre ( Nom ) {
-    const { shops  } = this.props
-    let newList = shops.map( element => {
-      if ( element.shop === Nom)  {
-        element.active = element.active === true ? false : true
-        return element
-      } else {
-        return element
-      }
-    });
-    console.log(newList)
-    this.props.setList(newList)
+
+
+  filtre (shop) {
+    // const { shops  } = this.props
+    console.log(shop)
+    this.setState({selectedShops: [...this.state.selectedShops, shop]})
+    console.log('aaaaaa' + this.state.selectedShops)
+    // let newList = shops.map( element => {
+    //   if ( element.shop )  {
+    //     console.log(element.shop)
+    //     element.active = element.active === true ? false : true
+    //     return element
+    //   } else {
+    //     return element
+    //   }
+    // });
+    // //console.log(newList)
+    // this.props.setList(newList)
   }
+
+  // filtreEvents(index) {
+  //   const { shops  } = this.props
+  //   let newList = shops.map( event => {
+  //     if( event.shops[index] === event.shop[0] ) {
+  //       return event.shops[0]
+  //     } 
+  //     console.log(shops[0], "index")
+
+  //   })
+  //   this.props.setList(newList)
+  // }
 
   filtreTime (time) {
     const { shops } = this.props
@@ -39,6 +63,8 @@ export class Isotope extends React.Component {
   }
 
   render() {
+    const {shops} = this.props
+    // console.log(shops[0], shops[1], shops[2], shops[3] )
     return (
       <div className="isotope-containt">
         <span className="close" onClick={this.props.close}></span>
@@ -48,7 +74,7 @@ export class Isotope extends React.Component {
             <div className="isotope-button">
               <label>
                 <Checkbox
-                onClick={()=>{ this.filtre("Concert") }}
+                onClick={()=>{ this.filtre(shops[0]) }}
                 className="filter_checkbox filter_checkbox_concert"
                 />
               
@@ -56,21 +82,21 @@ export class Isotope extends React.Component {
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre("Parc") }}
+                onClick={()=>{ this.filtre(shops[1]) }}
                 className="filter_checkbox filter_checkbox_parc"
               />
               Parcs
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre("Monument") }}
+                onClick={()=>{ this.filtre(shops[2]) }}
                 className="filter_checkbox filter_checkbox_monument"
               />
               Monuments
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre("Musee") }}
+                onClick={()=>{ this.filtre(shops[3]) }}
                 className="filter_checkbox filter_checkbox_musee"
               />
               Musées

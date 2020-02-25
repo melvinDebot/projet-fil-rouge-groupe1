@@ -67,6 +67,12 @@ export default class App extends React.Component{
         
         newIsotop.shops = shops
         this.setState(newIsotop)
+        this.setState({
+          activity0: actives[0],
+          activity1: actives[1],
+          activity2: actives[2],
+          activity4: actives[3]
+        })
       })
     )
     .catch(error => this.setState({ error, isLoading: false }));
