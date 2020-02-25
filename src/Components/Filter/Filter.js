@@ -16,12 +16,11 @@ class Filter extends React.Component{
   }
 
   getShops() {
-    axios.get("http://127.0.0.1:8000/api/bibliotheques/?hydra:member")
+    axios.get("http://127.0.0.1:8000/api/epreuves/?hydra:member")
     .then(response =>
       response.data['hydra:member'].map(shop => ({
         Nom: `${shop.Nom}`,
-        numero: `${shop.numero}`,
-        Rue: `${shop.Rue}`
+        Zone: `${shop.Zone}`
       }))
     )
     .then(shops => {

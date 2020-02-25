@@ -37,13 +37,13 @@ export default class App extends React.Component{
   }
 
   getShops() {
-    axios.get("http://127.0.0.1:8000/api/bibliotheques/?hydra:member")
+    axios.get("http://127.0.0.1:8000/api/concerts/?hydra:member")
     .then(response =>
       response.data['hydra:member'].map(shop => ({
         Nom: `${shop.Nom}`,
-        numero: `${shop.numero}`,
-        Rue: `${shop.Rue}`,
-        coordonne: `${shop.coordonne}`.split(","),
+        Lieux: `${shop.Lieux}`,
+        Coordonne: `${shop.Coordonne}`.split(","),
+        Url: `${shop.Url}`
       }))
     )
     .then((shops) => {
@@ -80,12 +80,11 @@ export default class App extends React.Component{
 
   showMe() {
     this.setState({ showMe : !this.state.showMe})
-    console.log(this.state.showMe)
   }
 
   render(){
     const {isotope} = this.state
-    console.log(this.state)
+
     return(
       <div className="App">
         <Filter  />
@@ -95,7 +94,7 @@ export default class App extends React.Component{
         <Maps shops={isotope.shops} />
         { isotope.state ? <Isotope shops={isotope.shops} setList={this.setList} close={this.toogleIsotopeState}/> : ''} 
         <ButtonNav clicked={this.showMe}/>
-        {this.state.showMe ? <ListActivty /> : ""}
+        {this.state.showMe ? <ListActivty close={this.showMe}/> : ""}
       </div>
     )
   }

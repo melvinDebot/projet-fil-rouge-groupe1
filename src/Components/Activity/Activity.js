@@ -11,11 +11,8 @@ function Activity(props){
 
       <div className="box_text">
         <p>{props.Nom}</p>
-      </div>
-
-      <div className="box_desc">
-        <p className="desc">Ouvert</p>
-        <p>{props.Rue}</p>
+        <span>{props.Rue}</span>
+        <span>{props.Lieux}</span>
       </div>
     </div>
   )

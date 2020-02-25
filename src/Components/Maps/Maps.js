@@ -16,9 +16,12 @@ class Markers extends React.Component{
 
   render(){
     const {shops} = this.props
+    console.log(shops)
+
     return(
       shops.map( city => {
-        let result = city.active ? <Marker key={city.id} longitude={city.coordonne[1]} latitude={city.coordonne[0]}><img src={city.url} alt={city.url}/></Marker> : ''
+        let result = city.active ? <Marker key={city.id} longitude={parseFloat(city.Coordonne[1])} latitude={parseFloat(city.Coordonne[0])}><img src={city.Url} alt={city.Url}/></Marker> : ''
+        console.log(city.longitude)
 
         return result
         

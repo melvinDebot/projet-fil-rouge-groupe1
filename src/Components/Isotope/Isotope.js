@@ -2,8 +2,6 @@ import React from 'react';
 import "./isotope.scss";
 import Checkbox from '@material-ui/core/Checkbox';
 
-// import { element } from 'prop-types';
-
 export class Isotope extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +19,7 @@ export class Isotope extends React.Component {
         return element
       }
     });
-    console.log(newList)
+    //console.log(newList)
     this.props.setList(newList)
   }
 
@@ -35,7 +33,7 @@ export class Isotope extends React.Component {
         return elem
       }
     })
-    console.log(newListTime)
+    //console.log(newListTime)
     this.props.setList(newListTime)
   }
 
@@ -78,23 +76,9 @@ export class Isotope extends React.Component {
             </label>
           </div>
         </div>
-        <div className="isotope--time">
-          <h4>Temps disponible </h4>
-          <div>
-            <button onClick={()=> {this.filtreTime(10)}}>10min</button>
-            <button onClick={()=> {this.filtreTime(20)}}>20min</button>
-            <button onClick={()=> {this.filtreTime(30)}}>30min</button>
-            <button onClick={()=> {this.filtreTime(40)}}>+30min</button>
-            <button onClick={()=> {this.filtreTime(50)}}>1h - 2h</button>
-          </div>
-        </div>
-        <div className="isotope-horaire">
-          <h4>Plage Horaire </h4>
-          De <input placeholder="12h" type="text" /> à <input placeholder="14h" type="text" /> 
-        </div>
-        <div className="isotope--time">
-          <h4>Temps disponible </h4>
-          <div>
+        <div className="isotope_time_container">
+          <h4>Distance (temps de marche à pieds)</h4>
+          <div className="isotope_time_bloc">
             <button onClick={()=> {this.filtreTime(2)}}>2min</button>
             <button onClick={()=> {this.filtreTime(5)}}>5min</button>
             <button onClick={()=> {this.filtreTime(10)}}>10min</button>
@@ -103,7 +87,7 @@ export class Isotope extends React.Component {
             <button onClick={()=> {this.filtreTime(40)}}>+30min</button>
           </div>
         </div>
-        <div className="isotope--next">
+        <div className="isotope_cta">
           <button onClick={this.props.close}>Suivant</button>
         </div>
 

@@ -10,7 +10,7 @@
   animation: opacity 0.6s forwards ease-in-out;
 
   .close:before {
-    content: "x";
+    content: "\00d7";
     font-size: 2rem;
     float: right;
     margin-right: 2rem;
@@ -20,30 +20,29 @@
   .isotope--block{
     margin: 1rem 1rem;
   }
+
   h3{
     font-size: 26px;
     color: #0885C2;
     font-weight: bold;
     margin-top: 2rem;
   }
+
   h4{
     font-weight: 600;
     font-size: 18px;
     margin: 1.5rem 0 1rem;
   }
+
   .isotope-button{
     div{
       display: flex;
+      flex-wrap: wrap;
       button{
         width: 23px;
         border-radius: 70%;
       }
     }
-  }
-
-  label {
-    float: left;
-    width: 50%;
   }
 
   .filter_checkbox {
@@ -92,6 +91,50 @@
       &:after {
         background: url(../../Assets/Icone/museum.svg) no-repeat;
       }
+    }
+  }
+
+  .isotope_time_container {
+    margin: 0 1rem;
+    
+    .isotope_time_bloc {
+      background-color: $primaryColor;
+      border-radius: 0.3rem;
+      height: 5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+      button {
+        color: #fff;
+        display: flex;
+        align-items: center;
+    
+        &:not(:nth-of-type(6)):after {
+          content: "";
+          height: 3rem;
+          width: 1px;
+          background-color: #fff;
+          margin-left: .6rem;
+        }
+      }
+    }
+  }
+
+  .isotope_cta {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: #0885C2;
+    padding: 1rem;
+    border-radius: 5rem;
+    margin-top: 6rem;
+    width: 30%;
+
+    button {
+      color: #fff;
+      font-weight: 600;
+
     }
   }
 }

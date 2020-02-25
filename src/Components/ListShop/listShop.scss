@@ -7,13 +7,16 @@
   top: 0;
   right: 0;
   left: 0;
-  bottom: 0;
   z-index: -1;
+  padding-bottom: 6rem;
   animation: opacity 0.6s forwards ease-in-out;
 
-  h1 {
-    font-size: 1.5rem;
-    margin-top: 2rem;
+  .list_shop_title {
+    margin: 3rem 0 2rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 
   .close:before {
