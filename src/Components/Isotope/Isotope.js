@@ -20,7 +20,7 @@ export class Isotope extends React.Component {
 
   filtre (shop) {
     // const { shops  } = this.props
-    console.log(shop)
+    //console.log(shop)
     this.setState({selectedShops: [...this.state.selectedShops, shop]})
     console.log('aaaaaa' + this.state.selectedShops)
     // let newList = shops.map( element => {
