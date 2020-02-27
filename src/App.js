@@ -48,6 +48,7 @@ export default class App extends React.Component{
         datasets: [
           {
             data: [],
+            label : [],
             backgroudColor: ""
           }
         ]
@@ -80,8 +81,37 @@ export default class App extends React.Component{
 
   componentDidMount(){
     this.getActivityMap()
-    // this.getApi()
+    this.getget()
+
   }
+  getget(){
+    axios.all([urlMonuments, urlMusee, urlParcs, urlConcerts])
+    .then(
+      axios.spread((...actives) => {
+        let newIsotop = this.state.isotope
+        const activities = [
+          actives[0].data,
+          actives[1].data,
+          actives[2].data,
+          actives[3].data
+        ]
+        newIsotop.activities = activities
+        this.setState(newIsotop)
+        let api = newIsotop.activities[0][0].Value // 0 in first array
+        let tt = newIsotop.activities[0] // get array one
+        let name = [newIsotop.activities[0][0].Nom, newIsotop.activities[0][1].Nom, newIsotop.activities[0][2].Nom, newIsotop.activities[0][3].Nom]
+        let numberTest = [newIsotop.activities[0][0].Value, newIsotop.activities[0][1].Value, newIsotop.activities[0][2].Value, newIsotop.activities[0][3].Value] // all array
+
+        this.setState({
+          data : numberTest,
+          label : name
+        })
+        
+      })
+    )
+  }
+
+
 
   // getApi(){
   //   axios.all([urlMonuments, urlMusee, urlParcs, urlConcerts])
@@ -119,11 +149,6 @@ export default class App extends React.Component{
     
   // }
 
-  // componentDidMount() {
-  //   fetch("https://www.w3dnetwork.com/api/c9a7ca131b2a9eb6fcffa46b84ca23dd.json")
-  //   .then((response) => response.json())
-  //   .then(data => console.log(data))
-  // }
 
   toogleIsotopeState() {
     const { isotope } = this.state
@@ -152,6 +177,13 @@ export default class App extends React.Component{
   }
 
   render(){
+
+    // const handler = () => {
+    //   this.setState({
+    //     isotope.activites: 'some value'
+    //   })
+    // }
+
     const {isotope} = this.state
 
     return(
@@ -160,14 +192,14 @@ export default class App extends React.Component{
         <ButtonFilter toogle={this.toogleIsotopeState} />    
 
         <ButtonDataviz />      
-        { isotope.activities.length ? <Maps setFilter={this.state.setFilter} filter={this.state.filter} activities={this.state.activities}  /> : null }
+        { isotope.activities.length ? <Maps set setFilter={this.state.setFilter} filter={this.state.filter} activities={this.state.activities}  /> : null }
         { isotope.state ? <Isotope setFilter={this.setFilter} filter={this.state.filter}  close={this.toogleIsotopeState}/> : ''} 
         <ButtonNav clicked={this.showMe}/>
         {this.state.showMe ? <ListActivty close={this.showMe} /> : ""}
         <ButtonDataviz clicked={()=> {
           this.setState({dataShow : !this.state.dataShow})
         }}/>
-        {this.state.dataShow ? <DataViz arrayApi={this.state.isotope.activities}/> : ""}
+        {this.state.dataShow ? <DataViz chartData={this.state.activities}/> : ""}
       </div>
     )
   }

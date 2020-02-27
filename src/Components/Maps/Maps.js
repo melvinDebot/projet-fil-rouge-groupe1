@@ -33,10 +33,19 @@ class Markers extends React.Component {
     this.setState({ show : true})
   }
 
-  render(){
+  handleMonumentClick = (i) => {
     const {activities, filter} = this.props;
+    activities[0][i].Value ++
+    console.log(activities)
+  }
+
+  render(){
+    const {activities, filter, addMarker} = this.props;
     const {show} = this.state;
     //console.log(activities, )
+
+
+
     return (
       <div> 
         {
@@ -44,7 +53,12 @@ class Markers extends React.Component {
             <div key={index}>
               {
                 filter.includes(0) && activities[0].map( (city, i, activity) => (                    
-                    <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
+                    <Marker 
+                      key={i} 
+                      longitude={city.Longitude} 
+                      latitude={city.Latitude} 
+                      activity={activity}
+                    >
                       {this.state.show ? <MarkerDetails key={i} Nom={city.Nom} close={this.show}/> : ""}
                       <img src={monuments} alt="monuments"/>
                     </Marker>
