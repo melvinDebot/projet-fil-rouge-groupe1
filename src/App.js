@@ -50,6 +50,7 @@ export default class App extends React.Component{
         datasets: [
           {
             data: [],
+            label : [],
             backgroudColor: ""
           }
         ]
@@ -84,10 +85,10 @@ export default class App extends React.Component{
 
   componentDidMount(){
     this.getActivityMap()
-    this.getApi()
-  }
+    this.getget()
 
-  getApi(){
+  }
+  getget(){
     axios.all([urlMonuments, urlMusee, urlParcs, urlConcerts])
     .then(
       axios.spread((...actives) => {
@@ -98,23 +99,16 @@ export default class App extends React.Component{
           actives[2].data,
           actives[3].data
         ]
-        
         newIsotop.activities = activities
         this.setState(newIsotop)
         
         let api = newIsotop.activities
         //console.log(tt)
 
-        let datas = [];
-        this.setState({
-          tt : datas
-        })
-        api.forEach(type => {
-          datas.push(type[0].Value)
-        })
-        return {datas : datas}
+        
       })
     )
+
     .catch(error => this.setState({ error, isLoading: false }));    
   }
 
@@ -148,6 +142,13 @@ export default class App extends React.Component{
   }
 
   render(){
+
+    // const handler = () => {
+    //   this.setState({
+    //     isotope.activites: 'some value'
+    //   })
+    // }
+
     const {isotope} = this.state
 
     return(
@@ -165,7 +166,7 @@ export default class App extends React.Component{
         <ButtonDataviz clicked={()=> {
           this.setState({dataShow : !this.state.dataShow})
         }}/>
-        {this.state.dataShow ? <DataViz pieData={isotope.activities}/> : ""}
+        {this.state.dataShow ? <DataViz chartData={this.state.activities}/> : ""}
       </div>
     )
   }

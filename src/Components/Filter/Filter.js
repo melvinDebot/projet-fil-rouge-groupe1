@@ -67,7 +67,6 @@ class Filter extends React.Component{
             onInput={this.handleInput}
             onClick={this.handleClick}
           />
-       
           { this.state.show ? (
               sports.map(sport => {
                 const { Nom } = sport;

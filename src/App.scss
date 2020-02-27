@@ -38,3 +38,7 @@ div, a, span, h1 {
     outline: none;
   }
 }
+
+  .mapboxgl-marker{
+    z-index: 0;
+  }

@@ -3,10 +3,13 @@
 .marker_details_container {
   background-color: #fff;
   border: 1px solid rgb(207, 203, 203);
-  width: 100%;
   padding: 1rem;
   text-align: center;
   margin-bottom: 1rem;
+  position: absolute;
+  left: -85%;
+  top: -120px;
+  z-index: 100000;
 
   .marker_name {
     color: #222222;

@@ -20,6 +20,7 @@ const geolocateStyle = {
   margin: 25
 };
 
+
 class Markers extends React.Component {
   constructor(props) {
     super(props)
@@ -28,84 +29,89 @@ class Markers extends React.Component {
       marker1 : null,
       marker2 : null,
       marker3 : null,
+      show0: false,
+      show1: false,
+      show2: false,
+      show3: false
     } 
-
   }
 
   // toggle popup of the markers
   show0(i) {
-    console.log('ok')
     this.setState({
       marker0 : i,
+      show0 : !this.state.show,
     })
 
   }
 
   show1(i) {
-    console.log('ok')
     this.setState({
       marker1 : i,
+      show1 : !this.state.show,
     })
 
   }
 
   show2(i) {
-    console.log('ok')
     this.setState({
       marker2 : i,
+      show2 : !this.state.show,
     })
 
   }
 
   show3(i) {
-    console.log('ok')
     this.setState({
       marker3 : i,
+      show3 : !this.state.show,
     })
-
   }
 
-  render(){
-    const {activities, filter} = this.props;
+
+  render() {
+    const {activities, filter,} = this.props;
+    //console.log(activities, )
+
+
 
     return (
       <div> 
-        { // browse the array of arrays 
-          activities && activities.map((index) => (
+        {
+          activities && activities.map((activity, index) => (
             <div key={index}>
-              { // filter function rendered on map when checkboxes checked 
-                // browse the array monuments to render the markers on the map 
-                // had to repeat the code because the icon marker depends on the type of array rendered
-                // popup show when img tag clicked
-
+              {
                 filter.includes(0) && activities[0].map( (city, i, activity) => (                    
+
                     <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
                       
                       { 
-                        this.state.marker0 === i ? <MarkerDetails key={i} Nom={city.Nom} /> : ""
+                        this.state.marker0 === i && this.state.show0 ? <MarkerDetails key={i} Nom={city.Nom} close={( () => {
+                          this.setState({show0 : false} )
+                        })}/> : ""
                       }
                         
                       <img src={monuments} alt="monuments" onClick={()=> { this.show0(i) }}  />
+
                     </Marker>
                 ))
               } 
-              { // filter function rendered on map when checkboxes checked 
-                // browse the array museums to render the markers on the map 
-                // had to repeat the code because the icon marker depends on the type of array rendered
-                // popup show when img tag clicked
-
+              {
                 filter.includes(1) && activities[1].map( (city, i, activity) => (
+
                   <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={(i)=>console.log(i)}>
                     
                     { 
-                      this.state.marker1 === i  ? <MarkerDetails key={i} Nom={city.Nom} /> : ""
+                      this.state.marker1 === i && this.state.show1 ? <MarkerDetails key={i} Nom={city.Nom} close={( () => {
+                        this.setState({show1 : false} )
+                      })}/> : ""
                     }
 
                     <img src={musees} alt="musees" onClick={()=>this.show1(i)} />
+
                   </Marker>
                 ))
               }
-
               { // filter function rendered on map when checkboxes checked 
                 // browse the array parks to render the markers on the map 
                 // had to repeat the code because the icon marker depends on the type of array rendered
@@ -115,7 +121,9 @@ class Markers extends React.Component {
                   <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
                     
                     { 
-                      this.state.marker2 === i  ? <MarkerDetails key={i} Nom={city.Nom} /> : ""
+                      this.state.marker2 === i && this.state.show2 ? <MarkerDetails key={i} Nom={city.Nom} close={( () => {
+                        this.setState({show2 : false} )
+                      })}/> : ""
                     }
 
                     <img src={parcs} alt="parcs" onClick={()=>this.show2(i)}/>
@@ -131,14 +139,12 @@ class Markers extends React.Component {
                   <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity}>
                     
                     { 
-                      this.state.marker3 === i  ? (
-                        <MarkerDetails key={i} Nom={city.Nom} /> 
-                      ) : (
-                        ""
-                      )
+                      this.state.marker3 === i && this.state.show3 ?  <MarkerDetails key={i} Nom={city.Nom} close={( () => {
+                        this.setState({show3 : false} )
+                      })}/> : ""
+                    
                     }
-                    <img src={concerts} alt="concert" onClick={()=>this.show4(i)} /> 
-
+                    <img src={concerts} alt="concert" onClick={()=>this.show3(i)} /> 
                   </Marker>
                 ))
               }
@@ -180,18 +186,16 @@ class Maps extends Component {
           mapStyle="mapbox://sprites/mapbox/light-v10"
           onViewportChange={this._onViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
+          
         >
           
           <GeolocateControl
             style={geolocateStyle}
             positionOptions={{enableHighAccuracy: true}}
             trackUserLocation={true}
+            showUserLocation={true}
           />
-
-          {
-            // Markers get the filter function and renders updated markers(=> activities) on the map 
-            // depending on what type of activities was checked
-          }
+          {/* {console.log(this.props.shops)} */}
           <Markers filter={filter} activities={this.props.activities} className="filter-item" />
           
         </MapGL>
