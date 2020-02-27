@@ -13,19 +13,27 @@ class DataViz extends Component{
       chartDataApi : [
         {
           label : "Museums",
+          id:"Museums",
           value : 1,
+          colors : "red"
         },
         {
           label : "Markets",
+          id:"Markets",
           value : 3,
+          colors : "blue"
         },
         {
           label : "Monuments",
+          id:"Monuments",
           value : 2,
+          colors : "yellow"
         },
         {
           label : "Concert",
+          id:"Concert",
           value : 8,
+          colors:"purple"
         },
       ],
       total : 0
@@ -60,6 +68,13 @@ class DataViz extends Component{
       total : total
     })
   }
+  handleClickApi (){
+    let testapi = JSON.parse(JSON.stringify(this.state.chartDataApi))
+    testapi[0].value = this.state.chartDataApi[0].value
+    this.setState({
+      chartDataApi : testapi
+    })
+  }
 
 
   render() {
@@ -69,14 +84,11 @@ class DataViz extends Component{
       <div className="data_pie">
         <ResponsivePie 
             data={this.state.chartDataApi}
+            colors={{ scheme: 'blues' }}
             height={200}
             width={200}
             innerRadius={0.5}
             padAngle={0.7}
-            colors={{ scheme: 'nivo' }}
-            innerRadius={0.5}
-            borderWidth={1}
-            radialLabelsLinkColor={{ from: 'color' }}
             animate={true}
 
           />
@@ -109,7 +121,7 @@ class DataViz extends Component{
             height={10}
           />
         </div>
-        <button>ADD</button>
+        <button onClick={this.handleClickApi}>ADD</button>
 
       </div>
     )
