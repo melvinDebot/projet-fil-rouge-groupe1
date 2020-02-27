@@ -1,6 +1,7 @@
 import React from 'react';
 import './buttonNav.scss';
 
+// The Map/List button component 
 class ButtonNav extends React.Component {
   constructor(props){
     super(props);
@@ -10,6 +11,7 @@ class ButtonNav extends React.Component {
     };
   }
 
+  // toggle color on click
   handleToggle = () => {
     this.setState ({
       colorBlue : this.state.colorWhite,

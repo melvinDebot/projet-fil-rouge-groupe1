@@ -40,7 +40,7 @@ class Markers extends React.Component {
   }
 
   render(){
-    const {activities, filter, addMarker} = this.props;
+    const {activities, filter,} = this.props;
     const {show} = this.state;
     //console.log(activities, )
 

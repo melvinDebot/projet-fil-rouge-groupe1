@@ -13,6 +13,7 @@ const urlresps2 = axios.get(two);
 const urlresps3 = axios.get(three);
 const urlresps4 = axios.get(four);
 
+// Component showing a list of museums, monuments, concerts, parcs 
 class ListActivty extends React.Component {
   constructor(props){
     super(props);
@@ -24,6 +25,7 @@ class ListActivty extends React.Component {
     }
   }
 
+  //call multiple urls with axios.all to render them
   getActivity() {
 
     axios.all([urlresps1, urlresps2, urlresps3, urlresps4])
@@ -55,6 +57,7 @@ class ListActivty extends React.Component {
         <div className="filter_activity_block">
 
           <h1>Monuments</h1>
+          {/* map monuments array to show in a list  */}
           {
             activities0 && activities0.data.map((activity0, i) => {
               return <Activity Nom={activity0.Nom} Rue={activity0.Rue} Arrondissement={activity0.Arrondissement} key={i} activity0={activity0} />
@@ -62,6 +65,7 @@ class ListActivty extends React.Component {
           }
 
           <h1>Museums</h1>
+           {/* map museums array to show in a list  */}
           {
             activities1 && activities1.data.map((activity1, i) => {
               return <Activity Nom={activity1.Nom} Rue={activity1.Rue} Arrondissement={activity1.Arrondissement} key={i} activity1={activity1} />
@@ -69,6 +73,7 @@ class ListActivty extends React.Component {
           }
 
           <h1>Parks</h1>
+           {/* map parks array to show in a list  */}
           {
             activities2 && activities2.data.map((activity2, i) => {
               //console.log(resps2.data)
@@ -77,6 +82,7 @@ class ListActivty extends React.Component {
           }
 
           <h1>Concerts</h1>
+           {/* map concerts array to show in a list  */}
           {
             activities3 && activities3.data.map((activity3, i) => {
               //console.log(resps2.data)

@@ -5,6 +5,7 @@ import { ResponsivePie } from '@nivo/pie';
 import BarChart from 'react-bar-chart';
 
 
+// DataViz component called when ButtonDataViz component clicked
 class DataViz extends Component{ 
   constructor(props) {
     super(props)

@@ -1,6 +1,7 @@
 import React from 'react';
 import './buttonData.scss';
 
+// Component opening dataviz
 class ButtonDataviz extends React.Component{
   constructor(props){
     super(props);

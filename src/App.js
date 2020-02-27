@@ -35,14 +35,16 @@ export default class App extends React.Component{
         state: false,
         dataShow: false,
         show : true,
+
+        // an array containing monuments array, museums array, parks array, concerts array
         activities: [
           [],
           [],
           [],
-          [],]
-        ,
+          [],
+        ],
       },
-      filter: [1, 3, 0, 2],
+      filter: [0,1,2,3],
       showMe : false,
       chartData: {
         datasets: [
@@ -59,6 +61,8 @@ export default class App extends React.Component{
     this.showMe = this.showMe.bind(this)
   }
 
+
+  // call API => multiple urls to render 
   getActivityMap() {
 
     axios.all([urlMonuments, urlMusee, urlParcs, urlConcerts])
@@ -97,58 +101,16 @@ export default class App extends React.Component{
         ]
         newIsotop.activities = activities
         this.setState(newIsotop)
-        let api = newIsotop.activities[0][0].Value // 0 in first array
-        let tt = newIsotop.activities[0] // get array one
-        let name = [newIsotop.activities[0][0].Nom, newIsotop.activities[0][1].Nom, newIsotop.activities[0][2].Nom, newIsotop.activities[0][3].Nom]
-        let numberTest = [newIsotop.activities[0][0].Value, newIsotop.activities[0][1].Value, newIsotop.activities[0][2].Value, newIsotop.activities[0][3].Value] // all array
+        
+        let api = newIsotop.activities
+        //console.log(tt)
 
-        this.setState({
-          data : numberTest,
-          label : name
-        })
         
       })
     )
+
+    .catch(error => this.setState({ error, isLoading: false }));    
   }
-
-
-
-  // getApi(){
-  //   axios.all([urlMonuments, urlMusee, urlParcs, urlConcerts])
-  //   .then(
-  //     axios.spread((...actives) => {
-  //       let newIsotop = this.state.isotope
-  //       const activities = [
-  //         actives[0].data,
-  //         actives[1].data,
-  //         actives[2].data,
-  //         actives[3].data
-  //       ]
-        
-  //       newIsotop.activities = activities
-  //       this.setState(newIsotop)
-        
-  //       let api = newIsotop.activities
-  //       let tt = this.state.chartData.datasets[0].data
-  //       //console.log(tt)
-
-  //       let datas = [];
-  //       let colors = [];
-  //       this.setState({
-  //         tt : datas
-  //       })
-  //       api.forEach(type => {
-  //         datas.push(type[0].Value)
-  //       })
-  //       return {datas : datas}
-  //     })
-  //   )
-  //   .catch(error => this.setState({ error, isLoading: false }));
-
-    
-    
-  // }
-
 
   toogleIsotopeState() {
     const { isotope } = this.state
@@ -159,6 +121,7 @@ export default class App extends React.Component{
     })
   }
 
+  // function to filter markers on the map 
   setFilter(idActivite) {
     let filter = this.state.filter
     if (filter.includes(idActivite)) {
@@ -172,6 +135,8 @@ export default class App extends React.Component{
     this.setState(filter)
   }
 
+
+  // toggle state when component clicked 
   showMe() {
     this.setState({ showMe : !this.state.showMe})
   }
@@ -191,11 +156,13 @@ export default class App extends React.Component{
         <Filter  />
         <ButtonFilter toogle={this.toogleIsotopeState} />    
 
-        <ButtonDataviz />      
-        { isotope.activities.length ? <Maps set setFilter={this.state.setFilter} filter={this.state.filter} activities={this.state.activities}  /> : null }
+        {/* call setFilter function on the map */}
+        { isotope.activities.length ? <Maps setFilter={this.state.setFilter} filter={this.state.filter} activities={this.state.activities}  /> : null }
         { isotope.state ? <Isotope setFilter={this.setFilter} filter={this.state.filter}  close={this.toogleIsotopeState}/> : ''} 
+
         <ButtonNav clicked={this.showMe}/>
-        {this.state.showMe ? <ListActivty close={this.showMe} /> : ""}
+        {this.state.showMe ? <ListActivty close={this.showMe}/> : ""}
+
         <ButtonDataviz clicked={()=> {
           this.setState({dataShow : !this.state.dataShow})
         }}/>

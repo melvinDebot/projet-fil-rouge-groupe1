@@ -15,13 +15,15 @@ class Filter extends React.Component{
     }
   }
 
-
+  //call API of table epreuves
   getSports() {
     axios.get("http://127.0.0.1:8000/api/epreuves/?hydra:member")
     .then(response =>
       response.data['hydra:member'].map(sport => ({
         Nom: `${sport.Nom}`,
-        Zone: `${sport.Zone}`
+        Zone: `${sport.Zone}`,
+        Longitude: `${sport.Longitude}`,
+        Latitude: `${sport.Latitude}`
       }))
     )
     .then(sports => {
@@ -49,6 +51,8 @@ class Filter extends React.Component{
 
   render(){
     const {sports} = this.state;
+
+    // filter component ListShop (liste site sportifs) with the name of each element 
     let filter = Array.isArray(this.state.sports) ? this.state.sports.filter((sport) => {
       return sport.Nom.toLowerCase().includes(this.state.searchDog.toLowerCase());
     }) : "";
