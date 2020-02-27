@@ -1,6 +1,8 @@
 import React from 'react';
 import imgOne from '../../Assets/imgOne.png'
 
+// Component called in ListActivity.js 
+// Display markers but in a list (monuments, museums, parks, concerts)
 function Activity(props){
   return(
     <div className="box">

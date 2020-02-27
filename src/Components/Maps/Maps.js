@@ -20,62 +20,130 @@ const geolocateStyle = {
   margin: 25
 };
 
-
 class Markers extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      show : false,
+      showMarkers : [
+        {
+          id:0,
+          show:false
+        },
+        {
+          id:1,
+          show:true
+        },
+        {
+          id:2,
+          show:false
+        },
+        {
+          id:3,
+          show:false
+        },
+      ]
     } 
+    this.show = this.show.bind(this)
+
   }
 
-  show() {
-    this.setState({ show : !this.state.false})
+  // toggle popup of the markers
+  show(i) {
+    // e.preventDefault();
+    console.log(i)
+    // this.setState({
+    //   show : !this.state.show,
+    // })
   }
 
   render(){
     const {activities, filter} = this.props;
-    const {show} = this.state;
-    //console.log(activities, )
+
     return (
       <div> 
-        {
-          activities && activities.map((activity, index) => (
+        { // browse the array of arrays 
+          activities && activities.map((index) => (
             <div key={index}>
-              {
+              { // filter function rendered on map when checkboxes checked 
+                // browse the array monuments to render the markers on the map 
+                // had to repeat the code because the icon marker depends on the type of array rendered
+                // popup show when img tag clicked
+
                 filter.includes(0) && activities[0].map( (city, i, activity) => (                    
-                    <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={this.show.bind(this)}>
-                      { !show ? ( 
-                        <MarkerDetails key={i} Nom={city.Nom} /> 
-                      ) : ( 
-                        " " 
-                    )}
-                      <img src={monuments} alt="monuments"/>
+                    <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
+                      
+                      { 
+                        this.state.show ? <MarkerDetails key={i} Nom={city.Nom} close={() => {
+                          this.setState({show : false})
+                          console.log(this.state.show)
+                        }}/> : ""
+                      }
+                        
+                      <img src={monuments} alt="monuments" /*onClick={this.show.bind(this)}*/  />
                     </Marker>
                 ))
               } 
-              {
+              { // filter function rendered on map when checkboxes checked 
+                // browse the array museums to render the markers on the map 
+                // had to repeat the code because the icon marker depends on the type of array rendered
+                // popup show when img tag clicked
+
                 filter.includes(1) && activities[1].map( (city, i, activity) => (
-                  <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={this.show.bind(this)}>
-                     <MarkerDetails key={i} Nom={city.Nom} />
-                    <img src={musees} alt="musees" />
+                  <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={(i)=>console.log(i)}>
+                    
+                    { 
+                      this.state.showMarkers[1].show ? <MarkerDetails key={i} Nom={city.Nom} close={() => {
+                        this.setState({show : false})
+                        console.log(this.state.show)
+                      }}/> : ""
+                    }
+
+                    <img src={musees} alt="musees" 
+                    // onClick={(i)=>this.show(i)}
+                     />
                   </Marker>
                 ))
               }
 
-              {
+              { // filter function rendered on map when checkboxes checked 
+                // browse the array parks to render the markers on the map 
+                // had to repeat the code because the icon marker depends on the type of array rendered
+                // popup show when img tag clicked
+
                  filter.includes(2) && activities[2].map( (city, i, activity) => (
-                  <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={this.show.bind(this)}>
-                    <MarkerDetails key={i} Nom={city.Nom} />
-                    <img src={parcs} alt="parcs" />
+                  <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
+                    
+                    { 
+                      this.state.show ? <MarkerDetails key={i} Nom={city.Nom} close={() => {
+                        this.setState({show : false})
+                        console.log(this.state.show)
+                      }}/> : ""
+                    }
+
+                    <img src={parcs} alt="parcs"  />
                   </Marker>
                 ))
               }
-              {
-                filter.includes(3) && activities[3].map( (city, i) => (
-                  <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={this.show.bind(this)}>
-                    <MarkerDetails key={i} Nom={city.Nom} />
-                    <img src={concerts} alt="concert" />
+              { // filter function rendered on map when checkboxes checked 
+                // browse the array concerts to render the markers on the map 
+                // had to repeat the code because the icon marker depends on the type of array rendered
+                // popup show when img tag clicked
+
+                filter.includes(3) && activities[3].map( (city, i, activity) => (
+                  <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity}>
+                    
+                    { 
+                      this.state.show ? (
+                        <MarkerDetails key={i} Nom={city.Nom} close={() => {
+                          this.setState({show : false})
+                          console.log(this.state.show)
+                        }}/> 
+                      ) : (
+                        ""
+                      )
+                    }
+                    {/* <img src={concerts} alt="concert" onClick={this.show.bind(this)} /> */}
+
                   </Marker>
                 ))
               }
@@ -93,28 +161,6 @@ class Markers extends React.Component {
 class Maps extends Component {
   
   state = {
-    showPopup: false,
-    popupInfo: null,
-    markerList: [
-      {
-        lat: 48.886857,
-        long: 2.356526,
-        name: "Hopital",
-        info: 10
-      },
-      { 
-        lat: 48.831457,
-        long: 2.301183,
-        name: "Maison",
-        info: 20
-      },
-      { 
-        lat: 48.833804,
-        long: 2.332401,
-        name: "Voiture",
-        info: 10
-      }
-    ],
     viewport: {
       latitude: 48.85310731427324,
       longitude: 2.3534590707287877,
@@ -123,27 +169,6 @@ class Maps extends Component {
       pitch: 0
     }
   };
-
-  // renderPopup(index) {
-  //   return (
-  //     this.state.popupInfo && (
-  //       <Popup
-  //         tipSize={5}
-  //         anchor="bottom-right"
-  //         longitude={activities[index].long}
-  //         latitude={activities[index].lat}
-  //         onMouseLeave={() => this.setState({ popupInfo: null })}
-  //         closeOnClick={true}
-  //       >
-  //         <p>
-  //           <strong>{activities[index].name}</strong>
-  //           <br />
-  //           Available beds:{activities[index].info}
-  //         </p>
-  //       </Popup>
-  //     )
-  //   );
-  // }
 
   _onViewportChange = viewport => this.setState({viewport});
 
@@ -167,7 +192,11 @@ class Maps extends Component {
             positionOptions={{enableHighAccuracy: true}}
             trackUserLocation={true}
           />
-          {/* {console.log(this.props.shops)} */}
+
+          {
+            // Markers get the filter function and renders updated markers(=> activities) on the map 
+            // depending on what type of activities was checked
+          }
           <Markers filter={filter} activities={this.props.activities} className="filter-item" />
           
         </MapGL>

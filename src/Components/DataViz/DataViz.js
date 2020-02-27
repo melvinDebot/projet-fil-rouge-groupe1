@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./dataViz.scss";
 
+// DataViz component called when ButtonDataViz component clicked
 class DataViz extends Component{ 
   constructor(props) {
     super(props)
