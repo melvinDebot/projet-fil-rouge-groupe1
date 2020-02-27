@@ -20,14 +20,7 @@ class ListActivty extends React.Component {
       show : false,
       searchDog: '',
       isLoading: true,
-      errors: null,
-      resps1: {
-        data: []
-      },
-      resps2: {
-        data: []
-      },
-     
+      errors: null
     }
   }
 
@@ -35,12 +28,12 @@ class ListActivty extends React.Component {
 
     axios.all([urlresps1, urlresps2, urlresps3, urlresps4])
     .then(
-      axios.spread((...responses) => {
+      axios.spread((...activities) => {
         this.setState({
-          resps1: responses[0],
-          resps2: responses[1],
-          resps3: responses[2],
-          resps4: responses[3]
+          activities0: activities[0],
+          activities1: activities[1],
+          activities2: activities[2],
+          activities3: activities[3]
         })
       })
     )
@@ -53,7 +46,7 @@ class ListActivty extends React.Component {
   
 
   render(){
-    const {resps1, resps2, resps3, resps4} = this.state;
+    const {activities0, activities1, activities2, activities3} = this.state;
 
     return(
       <div className="filter_activity_container">
@@ -63,31 +56,31 @@ class ListActivty extends React.Component {
 
           <h1>Monuments</h1>
           {
-            resps1 && resps1.data.map((resp1, i) => {
-              return <Activity Nom={resp1.Nom} Rue={resps1.Rue} Arrondissement={resp1.Arrondissement} key={i} resp1={resp1} />
+            activities0 && activities0.data.map((activity0, i) => {
+              return <Activity Nom={activity0.Nom} Rue={activity0.Rue} Arrondissement={activity0.Arrondissement} key={i} activity0={activity0} />
             })
           }
 
-          <h1>Musées</h1>
+          <h1>Museums</h1>
           {
-            resps2 && resps2.data.map((resp2, i) => {
-              return <Activity Nom={resp2.Nom} Rue={resp2.Rue} Arrondissement={resp2.Arrondissement} key={i} resp2={resp2} />
+            activities1 && activities1.data.map((activity1, i) => {
+              return <Activity Nom={activity1.Nom} Rue={activity1.Rue} Arrondissement={activity1.Arrondissement} key={i} activity1={activity1} />
             })
           }
 
-          <h1>Parcs</h1>
+          <h1>Parks</h1>
           {
-            resps3 && resps3.data.map((resp3, i) => {
+            activities2 && activities2.data.map((activity2, i) => {
               //console.log(resps2.data)
-              return <Activity Nom={resp3.Nom} key={i} resp3={resp3} />
+              return <Activity Nom={activity2.Nom} key={i} activity2={activity2} />
             })
           }
 
           <h1>Concerts</h1>
           {
-            resps4 && resps4.data.map((resp4, i) => {
+            activities3 && activities3.data.map((activity3, i) => {
               //console.log(resps2.data)
-              return <Activity Nom={resp4.Nom} Lieux={resp4.Lieux} key={i} resp4={resp4} />
+              return <Activity Nom={activity3.Nom} Lieux={activity3.Lieux} key={i} activity3={activity3} />
             })
           }
 

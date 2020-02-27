@@ -8,24 +8,24 @@ class Filter extends React.Component{
     super(props);
     this.state = {
       show : false,
-      shops : [],
+      sports : [],
       searchDog: '',
       isLoading: true,
       errors: null
     }
   }
 
-  getShops() {
+  getSports() {
     axios.get("http://127.0.0.1:8000/api/epreuves/?hydra:member")
     .then(response =>
-      response.data['hydra:member'].map(shop => ({
-        Nom: `${shop.Nom}`,
-        Zone: `${shop.Zone}`
+      response.data['hydra:member'].map(sport => ({
+        Nom: `${sport.Nom}`,
+        Zone: `${sport.Zone}`
       }))
     )
-    .then(shops => {
+    .then(sports => {
       this.setState({
-        shops,
+        sports,
         isLoading: false,
       });
     })
@@ -33,7 +33,7 @@ class Filter extends React.Component{
   }
 
   componentDidMount(){
-    this.getShops()
+    this.getSports()
   }
 
 
@@ -47,9 +47,9 @@ class Filter extends React.Component{
   }
 
   render(){
-    const {shops} = this.state;
-    let filter = Array.isArray(this.state.shops) ? this.state.shops.filter((shop) => {
-      return shop.Nom.toLowerCase().includes(this.state.searchDog.toLowerCase());
+    const {sports} = this.state;
+    let filter = Array.isArray(this.state.sports) ? this.state.sports.filter((sport) => {
+      return sport.Nom.toLowerCase().includes(this.state.searchDog.toLowerCase());
     }) : "";
 
     return(
@@ -57,16 +57,16 @@ class Filter extends React.Component{
         <div className="wrapper_input">
           <input 
             type="text" 
-            placeholder="Rechercher un lieu" 
+            placeholder="Search an Olympic venue" 
             className="input-filter" 
             onInput={this.handleInput}
             onClick={this.handleClick}
           />
        
           { this.state.show ? (
-              shops.map(shop => {
-                const { Nom } = shop;
-                return <ListShop key={Nom} filter={filter} shop={shop} close={( () => {
+              sports.map(sport => {
+                const { Nom } = sport;
+                return <ListShop key={Nom} filter={filter} sport={sport} close={( () => {
                   this.setState({show : false} )
                 })}/> 
               })

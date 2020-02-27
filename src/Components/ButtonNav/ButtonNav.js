@@ -24,13 +24,13 @@ class ButtonNav extends React.Component {
         <div className="button-item btn_cart" 
           style={{background : this.state.colorBlue, color : this.state.colorWhite}}
         >
-          <p>Carte</p>
+          <p>Map</p>
         </div>
         <div className="button-item btn_list" 
           style={{background : this.state.colorWhite, color : this.state.colorBlue}}
           onClick={this.props.clicked}
         >
-        <p>Liste</p>
+        <p>List</p>
         </div>
       </div> 
     )

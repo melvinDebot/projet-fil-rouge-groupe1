@@ -9,48 +9,35 @@ export class Isotope extends React.Component {
     this.filtre = this.filtre.bind(this);    
     this.close = this.props.close
     this.state = {
-      selectedShops : []
-
+      selectedActivity : []
     }
     // this.filtreEvents = this.filtreEvents.bind(this);    
-
   }
 
 
 
-  filtre (shop) {
-    // const { shops  } = this.props
-    //console.log(shop)
-    this.setState({selectedShops: [...this.state.selectedShops, shop]})
-    console.log('aaaaaa' + this.state.selectedShops)
-    // let newList = shops.map( element => {
-    //   if ( element.shop )  {
-    //     console.log(element.shop)
-    //     element.active = element.active === true ? false : true
-    //     return element
-    //   } else {
-    //     return element
-    //   }
-    // });
-    // //console.log(newList)
-    // this.props.setList(newList)
+  filtre () {
+    const { activities  } = this.props;
+
+    console.log(activities[0])
+    
+    // console.log(shop)
+    // this.setState({selectedActivity: [...this.state.selectedActivity, activity]})
+    // console.log('aaaaaa' , this.state.selectedActivity)
+     let newActivities = activities.map( element => {
+       if ( element.activities[0] )  {
+          console.log(element.activity)
+       } else {
+         return ""
+       }
+     });
+     console.log(newActivities)
+     this.props.setList(newActivities)
   }
-
-  // filtreEvents(index) {
-  //   const { shops  } = this.props
-  //   let newList = shops.map( event => {
-  //     if( event.shops[index] === event.shop[0] ) {
-  //       return event.shops[0]
-  //     } 
-  //     console.log(shops[0], "index")
-
-  //   })
-  //   this.props.setList(newList)
-  // }
 
   filtreTime (time) {
-    const { shops } = this.props
-    let newListTime = shops.map(elem => {
+    const { activities } = this.props
+    let newListTime = activities.map(elem => {
       if(elem.time === time){
         elem.active = elem.active === true ? false : true
         return elem
@@ -63,48 +50,51 @@ export class Isotope extends React.Component {
   }
 
   render() {
-    const {shops} = this.props
-    // console.log(shops[0], shops[1], shops[2], shops[3] )
+    const {activities, setFilter, filter} = this.props
+
     return (
       <div className="isotope-containt">
         <span className="close" onClick={this.props.close}></span>
         <div className="isotope--block">
-          <h3>Filtres</h3>
-          <h4>Type d'activité</h4>
+          <h3>Filters</h3>
+          <h4>Types of activities</h4>
             <div className="isotope-button">
               <label>
                 <Checkbox
-                onClick={()=>{ this.filtre(shops[0]) }}
+                checked={filter.includes(3)}
+                onClick={()=>{ setFilter(3) }}
                 className="filter_checkbox filter_checkbox_concert"
                 />
-              
-              Concert
+              Concerts
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre(shops[1]) }}
+                checked={filter.includes(2)}
+                onClick={()=>{ setFilter(2) }}
                 className="filter_checkbox filter_checkbox_parc"
               />
-              Parcs
+              Parks
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre(shops[2]) }}
+                checked={filter.includes(0)}
+                onClick={()=>{ setFilter(0) }}
                 className="filter_checkbox filter_checkbox_monument"
               />
               Monuments
             </label>
             <label>
               <Checkbox
-                onClick={()=>{ this.filtre(shops[3]) }}
+                checked={filter.includes(1)}
+                onClick={()=>{ setFilter(1) }}
                 className="filter_checkbox filter_checkbox_musee"
               />
-              Musées
+              Museums
             </label>
           </div>
         </div>
         <div className="isotope_time_container">
-          <h4>Distance (temps de marche à pieds)</h4>
+          <h4>Distance (in minutes of walking)</h4>
           <div className="isotope_time_bloc">
             <button onClick={()=> {this.filtreTime(2)}}>2min</button>
             <button onClick={()=> {this.filtreTime(5)}}>5min</button>
@@ -115,7 +105,7 @@ export class Isotope extends React.Component {
           </div>
         </div>
         <div className="isotope_cta">
-          <button onClick={this.props.close}>Suivant</button>
+          <button onClick={this.props.close}>Next</button>
         </div>
 
       </div>
