@@ -33,18 +33,18 @@ class Markers extends React.Component {
     this.setState({ show : true})
   }
 
-  handleMonumentClick = (i) => {
-    const {activities, filter} = this.props;
-    activities[0][i].Value ++
+  // handleMonumentClick = (i) => {
+  //   const {activities, filter} = this.props;
+  //   activities[0][i].Value ++
+  //   console.log(activities)
+  // }
+  handleClickApi(){
+    const {activities} = this.props;
     console.log(activities)
   }
 
   render(){
     const {activities, filter,} = this.props;
-    const {show} = this.state;
-    //console.log(activities, )
-
-
 
     return (
       <div> 

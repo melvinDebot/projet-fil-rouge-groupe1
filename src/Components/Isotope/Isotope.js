@@ -25,19 +25,7 @@ export class Isotope extends React.Component {
     this.props.setList(newListTime)
   }
 
-  filtreTime (time){
-    const { list } = this.props
-    let newListTime = list.map(elem => {
-      if(elem.time === time){
-        elem.active = elem.active === true ? false : true
-        return elem
-      } else {
-        return elem
-      }
-    })
-    console.log(newListTime)
-    this.props.setList(newListTime)
-  }
+
 
   render() {
     const {setFilter, filter} = this.props
@@ -98,16 +86,16 @@ export class Isotope extends React.Component {
         <div className="isotope_time_container">
           <h4>Distance (walking time)</h4>
           <div className="isotope_time_bloc">
-            <button onClick={()=> {this.filtreTime(2)}}>2min</button>
-            <button onClick={()=> {this.filtreTime(5)}}>5min</button>
-            <button onClick={()=> {this.filtreTime(10)}}>10min</button>
-            <button onClick={()=> {this.filtreTime(20)}}>20min</button>
-            <button onClick={()=> {this.filtreTime(30)}}>30min</button>
-            <button onClick={()=> {this.filtreTime(40)}}>+30min</button>
+            <div>2min</div>
+            <div>5min</div>
+            <div>10min</div>
+            <div>20min</div>
+            <div>30min</div>
+            <div>+30min</div>
           </div>
         </div>
         <div className="isotope_cta">
-          <button onClick={this.props.close}>Next</button>
+          <div onClick={this.props.close}>Next</div>
         </div>
 
       </div>

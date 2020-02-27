@@ -122,8 +122,6 @@ class DataViz extends Component{
             height={10}
           />
         </div>
-        <button onClick={this.handleClickApi}>ADD</button>
-
       </div>
     )
   }

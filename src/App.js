@@ -102,7 +102,6 @@ export default class App extends React.Component{
         newIsotop.activities = activities
         this.setState(newIsotop)
         
-        let api = newIsotop.activities
         //console.log(tt)
 
         
