@@ -24,36 +24,45 @@ class Markers extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showMarkers : [
-        {
-          id:0,
-          show:false
-        },
-        {
-          id:1,
-          show:true
-        },
-        {
-          id:2,
-          show:false
-        },
-        {
-          id:3,
-          show:false
-        },
-      ]
+      marker0 : null,
+      marker1 : null,
+      marker2 : null,
+      marker3 : null,
     } 
-    this.show = this.show.bind(this)
 
   }
 
   // toggle popup of the markers
-  show(i) {
-    // e.preventDefault();
-    console.log(i)
-    // this.setState({
-    //   show : !this.state.show,
-    // })
+  show0(i) {
+    console.log('ok')
+    this.setState({
+      marker0 : i,
+    })
+
+  }
+
+  show1(i) {
+    console.log('ok')
+    this.setState({
+      marker1 : i,
+    })
+
+  }
+
+  show2(i) {
+    console.log('ok')
+    this.setState({
+      marker2 : i,
+    })
+
+  }
+
+  show3(i) {
+    console.log('ok')
+    this.setState({
+      marker3 : i,
+    })
+
   }
 
   render(){
@@ -73,13 +82,10 @@ class Markers extends React.Component {
                     <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
                       
                       { 
-                        this.state.show ? <MarkerDetails key={i} Nom={city.Nom} close={() => {
-                          this.setState({show : false})
-                          console.log(this.state.show)
-                        }}/> : ""
+                        this.state.marker0 === i ? <MarkerDetails key={i} Nom={city.Nom} /> : ""
                       }
                         
-                      <img src={monuments} alt="monuments" /*onClick={this.show.bind(this)}*/  />
+                      <img src={monuments} alt="monuments" onClick={()=> { this.show0(i) }}  />
                     </Marker>
                 ))
               } 
@@ -92,15 +98,10 @@ class Markers extends React.Component {
                   <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={(i)=>console.log(i)}>
                     
                     { 
-                      this.state.showMarkers[1].show ? <MarkerDetails key={i} Nom={city.Nom} close={() => {
-                        this.setState({show : false})
-                        console.log(this.state.show)
-                      }}/> : ""
+                      this.state.marker1 === i  ? <MarkerDetails key={i} Nom={city.Nom} /> : ""
                     }
 
-                    <img src={musees} alt="musees" 
-                    // onClick={(i)=>this.show(i)}
-                     />
+                    <img src={musees} alt="musees" onClick={()=>this.show1(i)} />
                   </Marker>
                 ))
               }
@@ -114,13 +115,10 @@ class Markers extends React.Component {
                   <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
                     
                     { 
-                      this.state.show ? <MarkerDetails key={i} Nom={city.Nom} close={() => {
-                        this.setState({show : false})
-                        console.log(this.state.show)
-                      }}/> : ""
+                      this.state.marker2 === i  ? <MarkerDetails key={i} Nom={city.Nom} /> : ""
                     }
 
-                    <img src={parcs} alt="parcs"  />
+                    <img src={parcs} alt="parcs" onClick={()=>this.show2(i)}/>
                   </Marker>
                 ))
               }
@@ -133,16 +131,13 @@ class Markers extends React.Component {
                   <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity}>
                     
                     { 
-                      this.state.show ? (
-                        <MarkerDetails key={i} Nom={city.Nom} close={() => {
-                          this.setState({show : false})
-                          console.log(this.state.show)
-                        }}/> 
+                      this.state.marker3 === i  ? (
+                        <MarkerDetails key={i} Nom={city.Nom} /> 
                       ) : (
                         ""
                       )
                     }
-                    {/* <img src={concerts} alt="concert" onClick={this.show.bind(this)} /> */}
+                    <img src={concerts} alt="concert" onClick={()=>this.show4(i)} /> 
 
                   </Marker>
                 ))
