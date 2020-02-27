@@ -8,6 +8,7 @@ class ButtonDataviz extends React.Component{
   render(){
     return(
         <button className="button-data" onClick={this.props.clicked}></button>
+
     )
   }
 }

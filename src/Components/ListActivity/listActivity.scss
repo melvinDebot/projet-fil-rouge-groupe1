@@ -1,0 +1,25 @@
+.filter_activity_container {
+    background : white;
+    height : 100%;
+    padding: 2rem 2rem;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+
+    .filter_activity_block {
+      padding-bottom: 6rem;
+    }
+
+    .close:before {
+      content: "\00d7";
+      font-size: 2rem;
+      float: right;
+      color: #999999;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+    }
+}

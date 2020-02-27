@@ -1,33 +1,40 @@
 import React from 'react';
-import ListShop from '../ListShop/ListShop';
+import ListShop from '../ListShop/ListShop'
 import './filter.scss';
-import ButtonNav from '../ButtonNav/ButtonNav';
+import axios from 'axios';
 
 class Filter extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       show : false,
-      users: [],
-      shops : [
-        
-      ],
+      sports : [],
       searchDog: '',
+      isLoading: true,
+      errors: null
     }
   }
 
-<<<<<<< HEAD
+
+  getSports() {
+    axios.get("http://127.0.0.1:8000/api/epreuves/?hydra:member")
+    .then(response =>
+      response.data['hydra:member'].map(sport => ({
+        Nom: `${sport.Nom}`,
+        Zone: `${sport.Zone}`
+      }))
+    )
+    .then(sports => {
+      this.setState({
+        sports,
+        isLoading: false,
+      });
+    })
+    .catch(error => this.setState({ error, isLoading: false }));
+  }
+
   componentDidMount(){
-    fetch("https://www.w3dnetwork.com/api/4974193e295cc198b39049e3f670d747.json")
-    .then(res => res.json())
-    .then(json => this.setState({ shops: json }));
-    console.log(this.state.shop)
-=======
-  componentDidMount() {
-    fetch(`https://www.w3dnetwork.com/api/bf06ea2ceca83316c04a4264f91b0f3b.json`)
-    .then(res => res.json())
-    
->>>>>>> master
+    this.getSports()
   }
 
 
@@ -36,33 +43,39 @@ class Filter extends React.Component{
   }
   
   handleInput = (e) =>{
-    console.log(this.state.show)
     this.setState({ searchDog : e.target.value})
     this.handleClick()
   }
 
   render(){
-    console.log(this.state)
-    let filter = Array.isArray(this.state.shops) ? this.state.shops.filter((shop) => {
-      return shop.name.toLowerCase().includes(this.state.searchDog.toLocaleLowerCase())
-    }) : []
+    const {sports} = this.state;
+    let filter = Array.isArray(this.state.sports) ? this.state.sports.filter((sport) => {
+      return sport.Nom.toLowerCase().includes(this.state.searchDog.toLowerCase());
+    }) : "";
+
     return(
       <div className="filter_input_container">
         <div className="wrapper_input">
           <input 
             type="text" 
-            placeholder="Rechercher un lieu" 
+            placeholder="Search an Olympic venue" 
             className="input-filter" 
             onInput={this.handleInput}
             onClick={this.handleClick}
           />
-          {this.state.show ? <ListShop filter={filter} close={(()=>{
-            this.setState({show : false} )
-          })}/> : ""}
-          <ButtonNav clicked={this.handleClick}/>
+          { this.state.show ? (
+              sports.map(sport => {
+                const { Nom } = sport;
+                return <ListShop key={Nom} filter={filter} sport={sport} close={( () => {
+                  this.setState({show : false} )
+                })}/> 
+              })
+            ) : (
+              " "
+          )}
+          
         </div>
       </div>
-      
     )
   }
 }

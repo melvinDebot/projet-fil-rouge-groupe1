@@ -1,20 +1,21 @@
 import React from 'react';
 import imgOne from '../../Assets/imgOne.png'
-import "./list.scss";
 
-function List(props){
+function Activity(props){
   return(
     <div className="box">
       <div className="box_img">
         <img src={imgOne} alt="" />
+        <div className="block_img">{props.numero}</div>
       </div>
 
       <div className="box_text">
-        <p>{props.Nom.toLowerCase()}</p>
-        <span>{props.Zone}</span>
+        <p>{props.Nom}</p>
+        <span>{props.Rue}</span>
+        <span>{props.Lieux}</span>
       </div>
     </div>
   )
 }
 
-export default List;
+export default Activity;

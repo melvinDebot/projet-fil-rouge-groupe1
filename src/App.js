@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.scss';
+import axios from 'axios';
+
 
 // Import Components
 import Maps from './Components/Maps/Maps';
@@ -7,13 +9,20 @@ import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
 import Isotope from './Components/Isotope/Isotope';
 import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
+import ListActivty from './Components/ListActivity/ListActivity';
+import ButtonNav from './Components/ButtonNav/ButtonNav';
 import DataViz from './Components/DataViz/DataViz';
 
-//Import Assets
-import concert from './Assets/Icone/concert_marker.svg';
-import parc from './Assets/Icone/parc_marker.svg';
-import musee from './Assets/Icone/musee_marker.svg';
-import monument from './Assets/Icone/monument_marker.svg';
+
+let one = "http://127.0.0.1:8000/monuments";
+let two = "http://127.0.0.1:8000/musee";
+let three = "http://127.0.0.1:8000/parcs";
+let four = "http://127.0.0.1:8000/concerts";
+
+const urlMonuments = axios.get(one);
+const urlMusee = axios.get(two);
+const urlParcs = axios.get(three);
+const urlConcerts = axios.get(four);
 
 
 
@@ -21,102 +30,144 @@ export default class App extends React.Component{
   constructor (props) {
     super(props);
     this.state = {
+      
       isotope: {
         state: false,
+        dataShow: false,
         show : true,
-        list : [
+        activities: [
+          [],
+          [],
+          [],
+          [],]
+        ,
+      },
+      filter: [1, 3, 0, 2],
+      showMe : false,
+      chartData: {
+        datasets: [
           {
-            id : 1,
-            name : "Concert",
-            title : "Le duc",
-            longitude : 2.4211505003287126,
-            latitude : 48.8512844148994,
-            active : false ,
-            time : 10,
-            url : concert,
-            value : 10,
-            color : "green"
-          },
-          {
-            id : 2,
-            name : "Parc",
-            title : "Parc foresstier",
-            longitude : 2.418229003786947,
-            latitude : 48.850736553471464,
-            active : false, 
-            time : 30,
-            url : parc ,
-            value : 15,
-            color : "red"
-          },
-          {
-            id : 3,
-            name : "Musee",
-            title : "Louvre",
-            longitude : 2.430304002373407,
-            latitude : 48.843756303946755,
-            active : false, 
-            time : 50,
-            url : musee,
-            value : 20,
-            color : "orange"
-          },
-          {
-            id : 4,
-            name : "Monument",
-            title : "Louvre",
-            longitude : 2.430994731014011,
-            latitude : 48.84238356306906,
-            active : false, 
-            time : 60,
-            url : monument,
-            value : 30,
-            color : "purple"
-          },
+            data: [],
+            backgroudColor: ""
+          }
         ]
       }
     }
-    this.setList = this.setList.bind(this)
+    this.setFilter = this.setFilter.bind(this)
     this.toogleIsotopeState = this.toogleIsotopeState.bind(this)
+    this.showMe = this.showMe.bind(this)
   }
 
-  componentDidMount() {
-    fetch("https://www.w3dnetwork.com/api/c9a7ca131b2a9eb6fcffa46b84ca23dd.json")
-    .then((response) => response.json())
-    .then(data => console.log(data))
+  getActivityMap() {
+
+    axios.all([urlMonuments, urlMusee, urlParcs, urlConcerts])
+    .then(
+      axios.spread((...actives) => {
+        let newIsotop = this.state.isotope
+        const activities = [
+          actives[0].data,
+          actives[1].data,
+          actives[2].data,
+          actives[3].data
+        ]
+        
+        newIsotop.activities = activities
+        this.setState(newIsotop)
+      })
+    )
+    .catch(error => this.setState({ error, isLoading: false }));
   }
+
+  componentDidMount(){
+    this.getActivityMap()
+    // this.getApi()
+  }
+
+  // getApi(){
+  //   axios.all([urlMonuments, urlMusee, urlParcs, urlConcerts])
+  //   .then(
+  //     axios.spread((...actives) => {
+  //       let newIsotop = this.state.isotope
+  //       const activities = [
+  //         actives[0].data,
+  //         actives[1].data,
+  //         actives[2].data,
+  //         actives[3].data
+  //       ]
+        
+  //       newIsotop.activities = activities
+  //       this.setState(newIsotop)
+        
+  //       let api = newIsotop.activities
+  //       let tt = this.state.chartData.datasets[0].data
+  //       //console.log(tt)
+
+  //       let datas = [];
+  //       let colors = [];
+  //       this.setState({
+  //         tt : datas
+  //       })
+  //       api.forEach(type => {
+  //         datas.push(type[0].Value)
+  //       })
+  //       return {datas : datas}
+  //     })
+  //   )
+  //   .catch(error => this.setState({ error, isLoading: false }));
+
+    
+    
+  // }
+
+  // componentDidMount() {
+  //   fetch("https://www.w3dnetwork.com/api/c9a7ca131b2a9eb6fcffa46b84ca23dd.json")
+  //   .then((response) => response.json())
+  //   .then(data => console.log(data))
+  // }
 
   toogleIsotopeState() {
     const { isotope } = this.state
     isotope.state = isotope.state === true ? false : true
-    console.log(isotope)
     
     this.setState({
       "isotope" : isotope
     })
   }
 
-  setList(list) {
-    const {isotope} = this.state
-    isotope["list"] = list
+  setFilter(idActivite) {
+    let filter = this.state.filter
+    if (filter.includes(idActivite)) {
+      let index = filter.indexOf(idActivite) 
+      console.log(index)
+      filter = filter.splice(index)
+      console.log(filter, filter.splice(index))
+    } else{
+      filter.push(idActivite)
+    }
+    this.setState(filter)
+  }
 
-    this.setState({
-      "isotope" : isotope
-    })
+  showMe() {
+    this.setState({ showMe : !this.state.showMe})
   }
 
   render(){
     const {isotope} = this.state
+
     return(
       <div className="App">
         <Filter  />
         <ButtonFilter toogle={this.toogleIsotopeState} />    
-        <ButtonDataviz clicked={()=> {this.setState({ show : !this.state.show})}}/>    
-        {this.state.show ? <DataViz liste={isotope.list}/> : ""}  
-        
-        <Maps list={isotope.list} />
-        { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''} 
-        
+
+        <ButtonDataviz />      
+        { isotope.activities.length ? <Maps setFilter={this.state.setFilter} filter={this.state.filter} activities={this.state.activities}  /> : null }
+        { isotope.state ? <Isotope setFilter={this.setFilter} filter={this.state.filter}  close={this.toogleIsotopeState}/> : ''} 
+        <ButtonNav clicked={this.showMe}/>
+        {this.state.showMe ? <ListActivty close={this.showMe} /> : ""}
+        <ButtonDataviz clicked={()=> {
+          this.setState({dataShow : !this.state.dataShow})
+        }}/>
+        {this.state.dataShow ? <DataViz arrayApi={this.state.isotope.activities}/> : ""}
       </div>
     )
   }
