@@ -16,11 +16,18 @@ class Filter extends React.Component{
     }
   }
 
+<<<<<<< HEAD
   componentDidMount(){
     fetch("https://www.w3dnetwork.com/api/4974193e295cc198b39049e3f670d747.json")
     .then(res => res.json())
     .then(json => this.setState({ shops: json }));
     console.log(this.state.shop)
+=======
+  componentDidMount() {
+    fetch(`https://www.w3dnetwork.com/api/bf06ea2ceca83316c04a4264f91b0f3b.json`)
+    .then(res => res.json())
+    
+>>>>>>> master
   }
 
 

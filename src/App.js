@@ -7,6 +7,7 @@ import Filter from './Components/Filter/Filter';
 import ButtonFilter from './Components/ButtonFilter';
 import Isotope from './Components/Isotope/Isotope';
 import ButtonDataviz from './Components/ButtonDataviz/ButtonDataviz';
+import DataViz from './Components/DataViz/DataViz';
 
 //Import Assets
 import concert from './Assets/Icone/concert_marker.svg';
@@ -32,7 +33,9 @@ export default class App extends React.Component{
             latitude : 48.8512844148994,
             active : false ,
             time : 10,
-            url : concert
+            url : concert,
+            value : 10,
+            color : "green"
           },
           {
             id : 2,
@@ -42,7 +45,9 @@ export default class App extends React.Component{
             latitude : 48.850736553471464,
             active : false, 
             time : 30,
-            url : parc 
+            url : parc ,
+            value : 15,
+            color : "red"
           },
           {
             id : 3,
@@ -52,7 +57,9 @@ export default class App extends React.Component{
             latitude : 48.843756303946755,
             active : false, 
             time : 50,
-            url : musee 
+            url : musee,
+            value : 20,
+            color : "orange"
           },
           {
             id : 4,
@@ -62,7 +69,9 @@ export default class App extends React.Component{
             latitude : 48.84238356306906,
             active : false, 
             time : 60,
-            url : monument   
+            url : monument,
+            value : 30,
+            color : "purple"
           },
         ]
       }
@@ -102,7 +111,8 @@ export default class App extends React.Component{
       <div className="App">
         <Filter  />
         <ButtonFilter toogle={this.toogleIsotopeState} />    
-        <ButtonDataviz />      
+        <ButtonDataviz clicked={()=> {this.setState({ show : !this.state.show})}}/>    
+        {this.state.show ? <DataViz liste={isotope.list}/> : ""}  
         
         <Maps list={isotope.list} />
         { isotope.state ? <Isotope list={isotope.list} setList={this.setList} close={this.toogleIsotopeState}/> : ''} 
