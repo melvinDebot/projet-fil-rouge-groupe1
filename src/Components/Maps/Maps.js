@@ -4,6 +4,7 @@ import './maps.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import MarkerDetails from '../MarkerDetails/MarkerDetails';
+import ListShop from '../ListShop/ListShop';
 
 import concerts from '../../Assets/Icone/concert_marker.svg';
 import monuments from '../../Assets/Icone/monument_marker.svg';
@@ -80,7 +81,10 @@ class Markers extends React.Component {
         {
           activities && activities.map((activity, index) => (
             <div key={index}>
-              {
+              {// filter function rendered on map when checkboxes checked 
+                // browse the array parks to render the markers on the map 
+                // had to repeat the code because the icon marker depends on the type of array rendered
+                // popup show when img tag clicked
                 filter.includes(0) && activities[0].map( (city, i, activity) => (                    
 
                     <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} >
@@ -96,7 +100,10 @@ class Markers extends React.Component {
                     </Marker>
                 ))
               } 
-              {
+              {// filter function rendered on map when checkboxes checked 
+                // browse the array parks to render the markers on the map 
+                // had to repeat the code because the icon marker depends on the type of array rendered
+                // popup show when img tag clicked
                 filter.includes(1) && activities[1].map( (city, i, activity) => (
 
                   <Marker key={i} longitude={city.Longitude} latitude={city.Latitude} activity={activity} onClick={(i)=>console.log(i)}>
@@ -197,7 +204,7 @@ class Maps extends Component {
           />
           {/* {console.log(this.props.shops)} */}
           <Markers filter={filter} activities={this.props.activities} className="filter-item" />
-          
+          {/* <ListShop /> */}
         </MapGL>
       </div>
       

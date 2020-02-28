@@ -60,7 +60,7 @@ class ListActivty extends React.Component {
           {/* map monuments array to show in a list  */}
           {
             activities0 && activities0.data.map((activity0, i) => {
-              return <Activity Nom={activity0.Nom} Rue={activity0.Rue} Arrondissement={activity0.Arrondissement} key={i} activity0={activity0} />
+              return <Activity Nom={activity0.Nom} Rue={activity0.Rue} Arrondissement={activity0.Arrondissement} Picto={activity0.Picto} key={i} activity0={activity0} />
             })
           }
 
@@ -68,7 +68,7 @@ class ListActivty extends React.Component {
            {/* map museums array to show in a list  */}
           {
             activities1 && activities1.data.map((activity1, i) => {
-              return <Activity Nom={activity1.Nom} Rue={activity1.Rue} Arrondissement={activity1.Arrondissement} key={i} activity1={activity1} />
+              return <Activity Nom={activity1.Nom} Rue={activity1.Rue} Arrondissement={activity1.Arrondissement} Picto={activity1.Picto} key={i} activity1={activity1} />
             })
           }
 
@@ -77,7 +77,7 @@ class ListActivty extends React.Component {
           {
             activities2 && activities2.data.map((activity2, i) => {
               //console.log(resps2.data)
-              return <Activity Nom={activity2.Nom} key={i} activity2={activity2} />
+              return <Activity Nom={activity2.Nom} Picto={activity2.Picto} key={i} activity2={activity2} />
             })
           }
 
@@ -86,7 +86,7 @@ class ListActivty extends React.Component {
           {
             activities3 && activities3.data.map((activity3, i) => {
               //console.log(resps2.data)
-              return <Activity Nom={activity3.Nom} Lieux={activity3.Lieux} key={i} activity3={activity3} />
+              return <Activity Nom={activity3.Nom} Lieux={activity3.Lieux} Picto={activity3.Picto} key={i} activity3={activity3} />
             })
           }
 

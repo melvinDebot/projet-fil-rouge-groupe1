@@ -1,13 +1,13 @@
 import React from 'react';
-import imgOne from '../../Assets/imgOne.png'
+import epreuves from '../../Assets/epreuves.png'
 import "./list.scss";
 
 // Child Component of ListShop 
 function List(props){
   return(
-    <div className="box" onClick={props.clicked}>
+    <div className="box" onClick={props.clicked} >
       <div className="box_img">
-        <img src={imgOne} alt="" />
+        <img src={epreuves} alt="lieux-epreuves" />
       </div>
 
       <div className="box_text">

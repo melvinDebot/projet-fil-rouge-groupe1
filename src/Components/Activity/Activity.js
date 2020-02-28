@@ -7,7 +7,7 @@ function Activity(props){
   return(
     <div className="box">
       <div className="box_img">
-        <img src={imgOne} alt="" />
+        <img src={require(`../../Assets/${props.Picto}.svg`)} alt="" />
         <div className="block_img">{props.numero}</div>
       </div>
 

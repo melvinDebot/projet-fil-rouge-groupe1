@@ -4,7 +4,16 @@ import "./dataViz.scss";
 import { ResponsivePie } from '@nivo/pie';
 import BarChart from 'react-bar-chart';
 
-
+const margin = { top: 30, right: 200, bottom: 30, left: 100 };
+const styles = {
+  root: {
+    fontFamily: "consolas, sans-serif",
+    textAlign: "center",
+    position: "relative",
+    width: 500,
+    height: 250
+  }
+};
 // DataViz component called when ButtonDataViz component clicked
 class DataViz extends Component{ 
   constructor(props) {
@@ -16,25 +25,26 @@ class DataViz extends Component{
           label : "Museums",
           id:"Museums",
           value : 1,
-          colors : "red"
         },
         {
-          label : "Markets",
-          id:"Markets",
-          value : 3,
-          colors : "blue"
+          label : "Concerts",
+          id:"Concerts",
+          value : 1,
+        },
+        {
+          label : "Parks",
+          id:"Parks",
+          value : 1,
+        },
+        {
+          label : "",
+          id:"",
+          value : 0,
         },
         {
           label : "Monuments",
           id:"Monuments",
-          value : 2,
-          colors : "yellow"
-        },
-        {
-          label : "Concert",
-          id:"Concert",
-          value : 8,
-          colors:"purple"
+          value : 1,
         },
       ],
       total : 0
@@ -82,45 +92,58 @@ class DataViz extends Component{
     return (
       <div className="data_viz">
       <h1>Your activity</h1>
+      <p>During the 2024 JO, you went to {this.state.total - 1} activities.</p>
       <div className="data_pie">
-        <ResponsivePie 
-            data={this.state.chartDataApi}
-            colors={{ scheme: 'blues' }}
-            height={200}
-            width={200}
-            innerRadius={0.5}
-            padAngle={0.7}
-            animate={true}
-
-          />
-          <p>During the 2024 JO, you went to {this.state.total} activities.</p>
+        <div style={styles.root}>
+          <ResponsivePie 
+              data={this.state.chartDataApi}
+              colors={{ scheme: 'pastel1' }}
+              height={200}
+              width={200}
+              innerRadius={0.5}
+              padAngle={0.7}
+              animate={true}
+              margin={margin}
+            />
+        </div>
+        
+          
         </div>
         <div className="data_bar-chart">
-          <p>Museums . {this.state.chartDataApi[0].value} visited</p>
-          <BarChart 
-            data={this.state.chartDataApi}
-            width={this.state.chartDataApi[0].value * 50}
-            height={10}
-          />
-          <p>Markets . {this.state.chartDataApi[1].value} visited</p>
-          <BarChart 
-            data={this.state.chartDataApi}
-            width={this.state.chartDataApi[1].value * 50}
-            height={10}
-          />
-          <p>Monuments . {this.state.chartDataApi[2].value} visited</p>
-          <BarChart 
-            data={this.state.chartDataApi}
-            width={this.state.chartDataApi[2].value * 50}
-            height={10}
-            backgroundColor={this.state.chartDataApi[2].color}
-          />
-          <p>Parks . {this.state.chartDataApi[2].value} visited</p>
-          <BarChart 
-            data={this.state.chartDataApi}
-            width={this.state.chartDataApi[2].value * 50}
-            height={10}
-          />
+          
+          <label>Museums . {this.state.chartDataApi[0].value} visited</label>
+            <BarChart 
+              data={this.state.chartDataApi}
+              width={this.state.chartDataApi[0].value * 50}
+              height={10}
+              backgroundColor={this.state.chartDataApi[0].colors}
+            />
+          
+
+          <label>Concerts . {this.state.chartDataApi[1].value} visited</label>
+            <BarChart 
+              data={this.state.chartDataApi}
+              width={this.state.chartDataApi[1].value * 50}
+              height={10}
+            />
+          
+
+          <label>Monuments . {this.state.chartDataApi[2].value} visited</label>
+            <BarChart 
+              data={this.state.chartDataApi}
+              width={this.state.chartDataApi[2].value * 50}
+              height={10}
+              backgroundColor={this.state.chartDataApi[2].colors}
+            />
+          
+
+          <label>Parks . {this.state.chartDataApi[2].value} visited</label>
+            <BarChart 
+              data={this.state.chartDataApi}
+              width={this.state.chartDataApi[2].value * 50}
+              height={10}
+            />
+          
         </div>
         <button onClick={this.handleClickApi}>ADD</button>
 
