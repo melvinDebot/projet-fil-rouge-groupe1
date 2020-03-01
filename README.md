@@ -8,6 +8,10 @@
 
 ### Technologies Utilisées :
 
+### `SVG`
+
+Notre site comporte peu d’images, ainsi la majorité de ces dernières sont des icônes en svg. Ainsi, nous avons décidé d’utilisé du svg pour pouvoir manipuler les images comme n’importe quel autre élément du DOM sans aucune perte de qualité.
+
 ### `Axios`
 
 Axios nous a permis de simplifier nos appels API ainsi que le traitement des données que nous voulions utilisées pour mettre en place nos différentes fonctionnalités. En effet, axios renvoie des promesses pour chaque requête et s’occupe automatiquement de transformer les réponses en JSON.
