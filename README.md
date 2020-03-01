@@ -1,9 +1,9 @@
-## ARGUMENTAIRE DEVELOPPEMENT FRONT
+ARGUMENTAIRE DEVELOPPEMENT FRONT
 
 ## Les membres concernés par l'expertise Front-end sont :
 
-## • Eden Bergel
-## • Melvin Debot 
+• Eden Bergel
+• Melvin Debot 
 
 
 ## Technologies Utilisées :
@@ -30,8 +30,8 @@ Nous avons utilisé Material UI pour nos checkbox afin de minimiser le poids de 
 
 ## Lien vers les différentes ressources utilisées
 
-[Axios](https://github.com/axios/axios)
-[React Map GL](https://uber.github.io/react-map-gl/)
-[Nivo Pie](https://nivo.rocks/pie/)
-[React Bar Chart](https://canvasjs.com/react-charts/bar-chart/)
-[Material UI Checkbox](https://material-ui.com/components/checkboxes/)
+[Axios](https://github.com/axios/axios)<br/>
+[React Map GL](https://uber.github.io/react-map-gl/)<br/>
+[Nivo Pie](https://nivo.rocks/pie/)<br/>
+[React Bar Chart](https://canvasjs.com/react-charts/bar-chart/)<br/>
+[Material UI Checkbox](https://material-ui.com/components/checkboxes/)<br/>
