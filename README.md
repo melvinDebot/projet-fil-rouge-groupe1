@@ -1,12 +1,12 @@
-ARGUMENTAIRE DEVELOPPEMENT FRONT
+## ARGUMENTAIRE DEVELOPPEMENT FRONT
 
-## Les membres concernés par l'expertise Front-end sont :
+### Les membres concernés par l'expertise Front-end sont :
 
-• Eden Bergel
+• Eden Bergel<br/>
 • Melvin Debot 
 
 
-## Technologies Utilisées :
+### Technologies Utilisées :
 
 ### `Axios`
 
@@ -28,7 +28,7 @@ Canvas Js est une librairie qui aussi propose une grande quantité de diagrammes
 
 Nous avons utilisé Material UI pour nos checkbox afin de minimiser le poids de notre scss. Ce sont des composants React qui permettent de développer plus rapidement et facilement sans nécessairement avoir besoin de construire son propre design system. 
 
-## Lien vers les différentes ressources utilisées
+### Lien vers les différentes ressources utilisées
 
 [Axios](https://github.com/axios/axios)<br/>
 [React Map GL](https://uber.github.io/react-map-gl/)<br/>
