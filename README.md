@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ARGUMENTAIRE DEVELOPPEMENT FRONT
 
-## Available Scripts
+## Les membres concernés par l'expertise Front-end sont :
 
-In the project directory, you can run:
+## • Eden Bergel
+## • Melvin Debot 
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Utilisées :
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `Axios`
 
-### `yarn test`
+Axios nous a permis de simplifier nos appels API ainsi que le traitement des données que nous voulions utilisées pour mettre en place nos différentes fonctionnalités. En effet, axios renvoie des promesses pour chaque requête et s’occupe automatiquement de transformer les réponses en JSON.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `React Map GL`
 
-### `yarn build`
+React Map Gl est une suite de composant React de Mapbox GL. C'est une librairie qui permet de créer des cartes assez modernes et permet d'afficher de la donnée à l'aide de coordonées géographiques de façon simple. La syntaxe est la même que celle de React, aini son implémentaion dans notre projet à permis une meilleure gestion des données.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Nivo/Pie`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Nivo est une librairie qui propose une grande quantité de diagrammes responsives sous forme de composants React et qui permet de construire et gérer facilement des Dataviz. Ainsi nous avons choisi l'un de ses diagrammes "Pie" pour mettre en place notre dataviz.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `React Bar Chart - Canvas JS`
 
-### `yarn eject`
+Canvas Js est une librairie qui aussi propose une grande quantité de diagrammes responsives. Ainsi, nous avons utilisé React Bar Chart pour afficher notre dataviz de façon plus exhaustive.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Material UI`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Nous avons utilisé Material UI pour nos checkbox afin de minimiser le poids de notre scss. Ce sont des composants React qui permettent de développer plus rapidement et facilement sans nécessairement avoir besoin de construire son propre design system. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Lien vers les différentes ressources utilisées
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Axios](https://github.com/axios/axios)
+[React Map GL](https://uber.github.io/react-map-gl/)
+[Nivo Pie](https://nivo.rocks/pie/)
+[React Bar Chart](https://canvasjs.com/react-charts/bar-chart/)
+[Material UI Checkbox](https://material-ui.com/components/checkboxes/)
