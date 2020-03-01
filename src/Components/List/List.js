@@ -1,5 +1,5 @@
 import React from 'react';
-import epreuves from '../../Assets/epreuves.png'
+import epreuves from '../../assets/epreuves.png'
 import "./list.scss";
 
 // Child Component of ListShop 

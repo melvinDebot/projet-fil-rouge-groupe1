@@ -34,8 +34,12 @@
   }
 
   .isotope-button{
-      display: flex;
-      button{
+
+    label {
+      float: left;
+    width: 50%;
+    }
+    button{
         width: 23px;
         border-radius: 70%;
       }
@@ -55,7 +59,7 @@
         fill: #239DDB;
       }
       &:after {
-        background: url(../../Assets/Icone/microphone.svg) no-repeat;
+        background: url(../../assets/Icone/microphone.svg) no-repeat;
       }
       
     }
@@ -66,7 +70,7 @@
       }
 
       &:after {
-        background: url(../../Assets/Icone/park.svg) no-repeat;
+        background: url(../../assets/Icone/park.svg) no-repeat;
       }
     }
 
@@ -76,7 +80,7 @@
       }
 
       &:after {
-        background: url(../../Assets/Icone/triumph.svg) no-repeat;
+        background: url(../../assets/Icone/triumph.svg) no-repeat;
       }
     }
 
@@ -86,14 +90,15 @@
       }
 
       &:after {
-        background: url(../../Assets/Icone/museum.svg) no-repeat;
+        background: url(../../assets/Icone/museum.svg) no-repeat;
       }
     }
   }
 
   .isotope_time_container {
     margin: 0 1rem;
-    
+    display: none;
+
     .isotope_time_bloc {
       background-color: $primaryColor;
       border-radius: 0.3rem;
@@ -125,7 +130,7 @@
     background-color: #0885C2;
     padding: 1rem;
     border-radius: 5rem;
-    margin-top: 6rem;
+    margin-top: 10rem;
     width: 30%;
 
     button {

@@ -26,7 +26,7 @@ const urlConcerts = axios.get(four);
 
 
 
-export default class App extends React.Component{
+export default class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -102,7 +102,6 @@ export default class App extends React.Component{
         newIsotop.activities = activities
         this.setState(newIsotop)
         
-        let api = newIsotop.activities
         //console.log(tt)
 
         

@@ -4,12 +4,11 @@ import './maps.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import MarkerDetails from '../MarkerDetails/MarkerDetails';
-import ListShop from '../ListShop/ListShop';
 
-import concerts from '../../Assets/Icone/concert_marker.svg';
-import monuments from '../../Assets/Icone/monument_marker.svg';
-import musees from '../../Assets/Icone/musee_marker.svg';
-import parcs from '../../Assets/Icone/parc_marker.svg';
+import concerts from '../../assets/Icone/concert_marker.svg';
+import monuments from '../../assets/Icone/monument_marker.svg';
+import musees from '../../assets/Icone/musee_marker.svg';
+import parcs from '../../assets/Icone/parc_marker.svg';
 
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoibWVsdmluZGJ0IiwiYSI6ImNrNjBqb2RtcjA4M3Qzb21ieDB5bzE3ZmkifQ.g8UJ8r3es_zfy-NE9RVFgg'; //Set your mapbox token here

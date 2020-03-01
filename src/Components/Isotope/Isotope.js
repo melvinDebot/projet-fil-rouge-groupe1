@@ -25,20 +25,6 @@ export class Isotope extends React.Component {
     this.props.setList(newListTime)
   }
 
-  filtreTime (time){
-    const { list } = this.props
-    let newListTime = list.map(elem => {
-      if(elem.time === time){
-        elem.active = elem.active === true ? false : true
-        return elem
-      } else {
-        return elem
-      }
-    })
-    console.log(newListTime)
-    this.props.setList(newListTime)
-  }
-
   render() {
     const {setFilter, filter} = this.props
 
