@@ -10,7 +10,7 @@
 
 ### `SVG`
 
-Notre site comporte peu d’images, ainsi la majorité de ces dernières sont des icônes en svg. Ainsi, nous avons décidé d’utilisé du svg pour pouvoir manipuler les images comme n’importe quel autre élément du DOM sans aucune perte de qualité.
+Notre site comporte peu d’images, donc la majorité de ces dernières sont des icônes en svg. Ainsi, nous avons décidé d’utiliser du svg pour pouvoir manipuler les images comme n’importe quel autre élément du DOM sans aucune perte de qualité.
 
 ### `Axios`
 
@@ -18,11 +18,11 @@ Axios nous a permis de simplifier nos appels API ainsi que le traitement des don
 
 ### `React Map GL`
 
-React Map Gl est une suite de composant React de Mapbox GL. C'est une librairie qui permet de créer des cartes assez modernes et permet d'afficher de la donnée à l'aide de coordonées géographiques de façon simple. La syntaxe est la même que celle de React, aini son implémentaion dans notre projet à permis une meilleure gestion des données.
+React Map Gl est une suite de composants React de Mapbox GL. C'est une librairie qui permet de créer des cartes assez modernes et qui permet d'afficher de la donnée à l'aide de coordonées géographiques de façon simple. La syntaxe est la même que celle de React, ainsi son implémentaion dans notre projet à permis une meilleure gestion des données.
 
 ### `Nivo/Pie`
 
-Nivo est une librairie qui propose une grande quantité de diagrammes responsives sous forme de composants React et qui permet de construire et gérer facilement des Dataviz. Ainsi nous avons choisi l'un de ses diagrammes "Pie" pour mettre en place notre dataviz.
+Nivo est une librairie qui propose une grande quantité de diagrammes responsives sous forme de composants React et qui permet de construire et gérer facilement des dataviz. Ainsi nous avons choisi l'un de ses diagrammes (Pie) pour mettre en place notre dataviz.
 
 ### `React Bar Chart - Canvas JS`
 
